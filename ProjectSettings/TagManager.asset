@@ -42,12 +42,15 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Laberinto
+  - name: Capa 1
     uniqueID: 143075157
     locked: 0
-  - name: Agujeros-Laberinto
+  - name: Capa 2
     uniqueID: 3938650139
     locked: 0
   - name: UI
     uniqueID: 3466570515
+    locked: 0
+  - name: Capa 3
+    uniqueID: 2133669653
     locked: 0
