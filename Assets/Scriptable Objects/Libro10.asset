@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45081c6f71effde49a34d0f042416514, type: 3}
+  m_Name: Libro10
+  m_EditorClassIdentifier: 
+  portada: {fileID: 4810251482472987205, guid: 06ec72948c167944fa86b142fbd09fc2, type: 3}
+  numeroIndice: 2
+  color: 1
