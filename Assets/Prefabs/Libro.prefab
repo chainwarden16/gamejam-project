@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2302902936646329707}
   - component: {fileID: 2302902936646329706}
+  - component: {fileID: 1150753797}
+  - component: {fileID: -6704305180663377961}
   m_Layer: 0
   m_Name: Libro
   m_TagString: Untagged
@@ -58,6 +60,40 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.7931828, y: 6.9953604}
   m_EdgeRadius: 0
+--- !u!114 &1150753797
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2302902936646329708}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 810ff8eba65f0e643b9960a398820a0d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  libro: {fileID: 0}
+--- !u!50 &-6704305180663377961
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2302902936646329708}
+  m_BodyType: 2
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &2302902937478295559
 GameObject:
   m_ObjectHideFlags: 0
@@ -126,10 +162,10 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -356317157
-  m_SortingLayer: 2
-  m_SortingOrder: 2
-  m_Sprite: {fileID: -3181902017417445655, guid: 06ec72948c167944fa86b142fbd09fc2, type: 3}
+  m_SortingLayerID: 2133669653
+  m_SortingLayer: 4
+  m_SortingOrder: 3
+  m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -137,6 +173,6 @@ SpriteRenderer:
   m_Size: {x: 0.16, y: 0.16}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
