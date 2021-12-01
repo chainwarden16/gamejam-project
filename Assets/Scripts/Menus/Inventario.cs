@@ -36,4 +36,14 @@ public class Inventario : MonoBehaviour
         return objetosObtenidos;
     }
 
+    public Objeto GetObjetoSeleccionado()
+    {
+        return objetoSeleccionado;
+    }
+
+    public void DeseleccionarObjeto()
+    {
+        objetoSeleccionado = null;
+    }
+
 }

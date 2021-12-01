@@ -9,6 +9,7 @@ public class Puzle6 : MonoBehaviour
     [SerializeField]
     int piezasColocadas;
     public GameObject hanoi;
+    public List<GameObject> piezasHanoi;
 
 
     [Header("Puzle de gatos")]
@@ -34,6 +35,11 @@ public class Puzle6 : MonoBehaviour
 
     }
 
+    public void ComprobarEstadoHanoi()
+    {
+
+    }
+
     public void CerrarHanoi()
     {
 
@@ -45,16 +51,28 @@ public class Puzle6 : MonoBehaviour
 
     }
 
-    public void AñadirDisco()
+    public void MoverDisco()
     {
-        foreach (Objeto obje in inventario.GetObjetos())
+        if(piezasColocadas == 4 && !estaResuelto)
         {
-            if (obje.GetNombre() == "Donut")
-            {
-                //Se añade al montón de donuts. Si son 4, empieza el puzle
-            }
+
         }
     }
+
+    public void AñadirDisco()
+    {
+        if (inventario.GetObjetoSeleccionado().GetNombre() == "Donut" && piezasColocadas < 4)
+        {
+
+            piezasHanoi[piezasColocadas].SetActive(true);
+            piezasColocadas++;
+            inventario.EliminarObjeto(inventario.GetObjetos().IndexOf(inventario.GetObjetoSeleccionado()));
+            inventario.DeseleccionarObjeto();
+        }
+
+
+    }
+
 
     public bool HaResueltoPuzle()
     {

@@ -31,7 +31,7 @@ public class Puzle5 : MonoBehaviour
 
     }
 
-    public bool ComprobarEstadoPuzle()
+    public void ComprobarEstadoPuzle()
     {
         bool resuelto = true;
 
@@ -51,11 +51,18 @@ public class Puzle5 : MonoBehaviour
             }
             else
             {
-                Debug.Log("Coindicen todas.");
+                Debug.Log("Coindicen en el índice "+i);
             }
         }
 
-        return resuelto;
+        if (resuelto)
+        {
+            estaResuelto = true;
+        }
+        else
+        {
+            estaResuelto = false;
+        }
     }
 
     public bool HaResueltoPuzle()

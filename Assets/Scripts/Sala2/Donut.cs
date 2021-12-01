@@ -4,15 +4,12 @@ using UnityEngine;
 
 public class Donut : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    int size;
+
+    public bool SePuedeColocarEncima(int tamaño)
     {
-        
+        return size < tamaño;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    
 }
