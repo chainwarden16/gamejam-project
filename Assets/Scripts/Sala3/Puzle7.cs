@@ -25,4 +25,10 @@ public class Puzle7 : MonoBehaviour
         return estaResuelto;
     }
 
+    public void SaltarPuzle()
+    {
+        estaResuelto = true;
+    }
+
+
 }

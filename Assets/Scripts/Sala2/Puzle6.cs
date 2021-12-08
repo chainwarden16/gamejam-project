@@ -128,4 +128,11 @@ public class Puzle6 : MonoBehaviour
         return sePuedeMoverDisco;
     }
 
+    public void SaltarPuzle()
+    {
+        estaResuelto = true;
+        //se activa el texto y se mueven los discos
+    }
+
+
 }

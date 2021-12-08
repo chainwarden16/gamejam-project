@@ -87,31 +87,10 @@ public class Puzle8 : MonoBehaviour
         piezaSeleccionada = null;
     }
 
-    public void DepositarPieza()
+    public void SaltarPuzle()
     {
-        /*int huecoALlenar = piezaSeleccionada.GetHuecoIndiceActual();
-
-        if (piezasColocadas[huecoALlenar] == null)
-        {
-            piezasColocadas[huecoALlenar] = piezaSeleccionada.gameObject;
-            if (piezaSeleccionada.GetHuecoFisicoActual() != null)
-            {
-                piezaSeleccionada.CambiarPosicionOriginal(piezaSeleccionada.GetHuecoFisicoActual().transform.position);
-                piezaSeleccionada.transform.position = piezaSeleccionada.GetHuecoFisicoActual().gameObject.transform.position;
-
-            }
-            else
-            {
-                piezaSeleccionada.RegresarPieza();
-            }
-            DeseleccionarPieza();
-        }
-        else
-        {
-            piezaSeleccionada.RegresarPieza();
-            //piezasColocadas[piezaSeleccionada.GetHuecoIndiceActual()] = piezaSeleccionada.gameObject;
-            DeseleccionarPieza();
-
-        }*/
+        estaResuelto = true;
+        //aparecen las piezas ordenadas y el texto de la solucion
     }
+
 }

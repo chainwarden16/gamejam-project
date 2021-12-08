@@ -185,6 +185,10 @@ public class Puzle4 : MonoBehaviour
         return estaResuelto;
     }
 
-
+    public void SaltarPuzle()
+    {
+        estaResuelto = true;
+        //aparece la llave en el inventario del jugador
+    }
 
 }

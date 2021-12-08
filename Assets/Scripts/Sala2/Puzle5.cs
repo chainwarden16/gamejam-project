@@ -69,4 +69,11 @@ public class Puzle5 : MonoBehaviour
     {
         return estaResuelto;
     }
+
+    public void SaltarPuzle()
+    {
+        estaResuelto = true;
+        //aparece el objeto en el inventario del jugador
+    }
+
 }

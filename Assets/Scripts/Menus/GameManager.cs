@@ -18,6 +18,9 @@ public class GameManager : MonoBehaviour
     bool estaReiniciandoSala = false;
     float contadorGameOver = 4f; //a los 4 segundos, el juego terminará
 
+    [Header("Puzle actual para comodín")]
+    int puzleActual;
+
     private void Start()
     {
 
@@ -88,6 +91,16 @@ public class GameManager : MonoBehaviour
     public void GuardarProgresoOponente()
     {
         PlayerPrefs.SetInt("SalaActualOponente", salaOponente);
+    }
+
+    public int GetPuzleActual()
+    {
+        return puzleActual;
+    }
+
+    public void SetPuzleActual(int numero)
+    {
+        puzleActual = numero;
     }
 
 }

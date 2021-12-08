@@ -100,7 +100,6 @@ public class Puzle9 : MonoBehaviour
                     boton2 = false;
                     boton3 = false;
                     boton4 = false;
-                    Debug.Log("Meeeeeec, ¡error!");
                     //se cambian todos los botones
                 }
                 break;
@@ -116,7 +115,6 @@ public class Puzle9 : MonoBehaviour
                     boton2 = false;
                     boton3 = false;
                     boton4 = false;
-                    Debug.Log("Meeeeeec, ¡error!");
                     //se cambian todos los botones
                 }
                 break;
@@ -132,7 +130,6 @@ public class Puzle9 : MonoBehaviour
                     boton2 = false;
                     boton3 = false;
                     boton4 = false;
-                    Debug.Log("Meeeeeec, ¡error!");
                     //se cambian todos los botones
                 }
                 break;
@@ -148,11 +145,16 @@ public class Puzle9 : MonoBehaviour
                     boton2 = false;
                     boton3 = false;
                     boton4 = false;
-                    Debug.Log("Meeeeeec, ¡error!");
                     //se cambian todos los botones
                 }
                 break;
         }
     }
+
+    public void SaltarPuzle()
+    {
+        estaResuelto = true;
+    }
+
 
 }
