@@ -9,10 +9,13 @@ public class Puzle6 : MonoBehaviour
     [SerializeField]
     int piezasColocadas;
     public GameObject hanoi;
-    public List<Donut> piezasHanoi1;
-    public List<Donut> piezasHanoi2;
-    public List<Donut> piezashanoi3;
 
+    [Header("Varillas del puzle")]
+    public Varilla varilla1;
+    public Varilla varilla3;
+
+
+    [SerializeField] 
     Donut discoSeleccionado;
 
 
@@ -44,13 +47,13 @@ public class Puzle6 : MonoBehaviour
     public void ComprobarEstadoHanoi()
     {
         bool resuelto = true;
-        if (piezashanoi3.Count == 4)
+        if (varilla3.GetDiscos().Count == 4)
         {
 
-            for (int i = 0; i < piezashanoi3.Count; i++)
+            for (int i = 0; i < varilla3.GetDiscos().Count; i++)
             {
                 int tamaño = 4;
-                if (piezashanoi3[i].GetSize() != tamaño - i)
+                if (varilla3.GetDiscos()[i].GetSize() != tamaño - i)
                 {
                     resuelto = false;
                     break;
@@ -61,6 +64,7 @@ public class Puzle6 : MonoBehaviour
         else
         {
             resuelto = false;
+            Debug.Log("No está resuelto");
         }
 
         estaResuelto = resuelto;
@@ -78,13 +82,6 @@ public class Puzle6 : MonoBehaviour
 
     }
 
-    public List<List<Donut>> GetEstadoVarillas()
-    {
-        List<List<Donut>> varillas = new List<List<Donut>> { piezasHanoi1, piezasHanoi2, piezashanoi3 };
-
-        return varillas;
-    }
-
     public void SePuedeMoverDisco()
     {
         if (piezasColocadas == 4)
@@ -98,12 +95,11 @@ public class Puzle6 : MonoBehaviour
         if (inventario.GetObjetoSeleccionado().GetNombre() == "Donut" && piezasColocadas < 4)
         {
 
-            piezasHanoi1[piezasColocadas].gameObject.SetActive(true);
+            varilla1.GetDiscos()[piezasColocadas].gameObject.SetActive(true);
             piezasColocadas++;
             inventario.EliminarObjeto(inventario.GetObjetos().IndexOf(inventario.GetObjetoSeleccionado()));
             inventario.DeseleccionarObjeto();
         }
-
 
     }
 
@@ -111,6 +107,12 @@ public class Puzle6 : MonoBehaviour
     {
         discoSeleccionado = disco;
     }
+
+    public void DeseleccionarDisco()
+    {
+        discoSeleccionado = null;
+    }
+
 
     public Donut GetDiscoSeleccionado()
     {
