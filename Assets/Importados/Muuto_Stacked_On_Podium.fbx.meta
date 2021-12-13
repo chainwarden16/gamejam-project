@@ -1,0 +1,192 @@
+fileFormatVersion: 2
+guid: e46e54492d8e73346b7f2bf266540f12
+ModelImporter:
+  serializedVersion: 20200
+  internalIDToNameTable: []
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Muuto_Stacked_On_Podium_mtl_1
+    second: {fileID: 2100000, guid: 6be289eb9e61e0e4c9a208c7bf9467bc, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Muuto_Stacked_On_Podium_mtl_10
+    second: {fileID: 2100000, guid: 15db78a0a8b7fcc45a3732fc58f3f6a0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Muuto_Stacked_On_Podium_mtl_11
+    second: {fileID: 2100000, guid: 377125890332c64419fd585f41ea1925, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Muuto_Stacked_On_Podium_mtl_12
+    second: {fileID: 2100000, guid: e6ecac53be8b8584e9095c09ddbe1aef, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Muuto_Stacked_On_Podium_mtl_13
+    second: {fileID: 2100000, guid: ca11968fe9a0a6a4cad71f3645753e16, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Muuto_Stacked_On_Podium_mtl_14
+    second: {fileID: 2100000, guid: e4854b219f0e8cf4f9085093302b8dd2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Muuto_Stacked_On_Podium_mtl_15
+    second: {fileID: 2100000, guid: 960f3d0c9df652a4abbf4712327f257d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Muuto_Stacked_On_Podium_mtl_16
+    second: {fileID: 2100000, guid: 45530b7770954ed42920864983a56988, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Muuto_Stacked_On_Podium_mtl_17
+    second: {fileID: 2100000, guid: 31df820c72c5a284e9ad17c4bd9580d4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Muuto_Stacked_On_Podium_mtl_18
+    second: {fileID: 2100000, guid: 747bdd21417341840a43eee85e30ccfd, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Muuto_Stacked_On_Podium_mtl_2
+    second: {fileID: 2100000, guid: 2b9d10f37edec254fb06f563e39dee24, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Muuto_Stacked_On_Podium_mtl_3
+    second: {fileID: 2100000, guid: 43d59255eb8d26245809bada97f3a4b4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Muuto_Stacked_On_Podium_mtl_4
+    second: {fileID: 2100000, guid: 1cddb9ce349e3a141975db09daea15b8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Muuto_Stacked_On_Podium_mtl_5
+    second: {fileID: 2100000, guid: ba929ca7b559c664f9c827979985799a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Muuto_Stacked_On_Podium_mtl_6
+    second: {fileID: 2100000, guid: 8e606cf5df0798047ba217208f4a9f89, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Muuto_Stacked_On_Podium_mtl_7
+    second: {fileID: 2100000, guid: 7644982e9721cba488e4760838c180c1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Muuto_Stacked_On_Podium_mtl_8
+    second: {fileID: 2100000, guid: b835f32f875bf7047bc68599ddfbf728, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Muuto_Stacked_On_Podium_mtl_9
+    second: {fileID: 2100000, guid: 9b22781c0d6849d4eab995e94fd02d60, type: 2}
+  materials:
+    materialImportMode: 2
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    fileIdsGeneration: 2
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 1
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 2
+  humanoidOversampling: 1
+  avatarSetup: 0
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
