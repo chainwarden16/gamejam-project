@@ -8,7 +8,6 @@ public class OpcionesGameplay : MonoBehaviour
     #region Variables
 
     public GameObject uiMenu;
-    public GameObject uiControles;
     public GameObject uiOpciones;
 
     OpcionesGameplay opciones;
@@ -27,22 +26,25 @@ public class OpcionesGameplay : MonoBehaviour
     public static int sfx;
     AudioSource sourceMusica, sourceSFX;
 
+    MenuPausa controladorPausa;
 
     #endregion
 
     void Start()
     {
         opciones = FindObjectOfType<OpcionesGameplay>();
+        controladorPausa = FindObjectOfType<MenuPausa>();
+        
         uiMenu.SetActive(false);
-        uiControles.SetActive(false);
 
         //operaciones del menú de pausa
 
-        musica = PlayerPrefs.GetInt("Música", 10);
-        sfx = PlayerPrefs.GetInt("SFX", 10);
         audioC = FindObjectOfType<AudioController>();
         sourceMusica = audioC.sourceMusica;
         sourceSFX = audioC.sourceSFX;
+
+        musica = PlayerPrefs.GetInt("Música", 10);
+        sfx = PlayerPrefs.GetInt("SFX", 10);
 
         flechaDM = flechaDerMusica.GetComponent<Button>();
         flechaIM = flechaIzqMusica.GetComponent<Button>();
@@ -65,6 +67,7 @@ public class OpcionesGameplay : MonoBehaviour
         audioC.PlaySFX(confirmar);
         uiMenu.SetActive(false);
         Time.timeScale = 1;
+        controladorPausa.SetEstaPausado(false);
         this.enabled = false;
     }
 
@@ -74,24 +77,11 @@ public class OpcionesGameplay : MonoBehaviour
         Application.Quit();
     }
 
-    public void MostrarControles()
-    {
-        audioC.PlaySFX(confirmar);
-        uiControles.SetActive(true);
-
-    }
-
-    public void QuitarControles()
-    {
-        audioC.PlaySFX(confirmar);
-        uiControles.SetActive(false);
-    }
-
     public void MostrarOpciones()
     {
         audioC.PlaySFX(confirmar);
         uiOpciones.SetActive(true);
-
+        controladorPausa.SetestaViendoOpciones(true);
         uiMenu.SetActive(false);
     }
 
@@ -161,6 +151,7 @@ public class OpcionesGameplay : MonoBehaviour
         audioC.PlaySFX(confirmar);
         PlayerPrefs.SetInt("Música", musica);
         PlayerPrefs.SetInt("SFX", sfx);
+        controladorPausa.SetestaViendoOpciones(false);
         ReactivarMenuPausa();
     }
 
@@ -176,6 +167,7 @@ public class OpcionesGameplay : MonoBehaviour
         cantidadSFX.text = (PlayerPrefs.GetInt("SFX")).ToString();
         musica = PlayerPrefs.GetInt("Música", 10);
         sfx = PlayerPrefs.GetInt("SFX", 10);
+        controladorPausa.SetestaViendoOpciones(false);
         ReactivarMenuPausa();
     }
 

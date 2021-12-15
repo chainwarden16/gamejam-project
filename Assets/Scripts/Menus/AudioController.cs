@@ -14,6 +14,12 @@ public class AudioController : MonoBehaviour
     public AudioClip musicaConstruccion;
     public AudioClip musicaIntro;
 
+    [SerializeField]
+    int volumenMusica;
+    [SerializeField]
+    int volumenSFX;
+
+
     public static AudioController _instance;
 
     #region AudioController singleton
@@ -38,8 +44,8 @@ public class AudioController : MonoBehaviour
     {
 
         sourceMusica.clip = musicaTitulo;
-        int volumenMusica = PlayerPrefs.GetInt("Musica", 10);
-        int volumenSFX = PlayerPrefs.GetInt("SFX", 10);
+        volumenMusica = PlayerPrefs.GetInt("Música", 10);
+        volumenSFX = PlayerPrefs.GetInt("SFX", 10);
         sourceMusica.volume = volumenMusica * 0.1f;
         sourceSFX.volume = volumenSFX * 0.1f;
         sourceMusica.Play();
