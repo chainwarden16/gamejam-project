@@ -52,7 +52,17 @@ public class Puzle9 : MonoBehaviour
             }
 
             temporizador += Time.deltaTime;
-            textoContador.text = contador.ToString();
+
+            if (contador < 10)
+            {
+                textoContador.text = "0" + contador.ToString();
+            }
+            else
+            {
+
+                textoContador.text = contador.ToString();
+            }
+
 
         }
     }
