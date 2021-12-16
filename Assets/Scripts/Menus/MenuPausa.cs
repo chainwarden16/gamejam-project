@@ -19,10 +19,6 @@ public class MenuPausa : MonoBehaviour
 
     GameManager manager;
 
-    [Header("Control del cursor")]
-    int lugarCursorPausa = 0;
-    int movimientoCursorMenu = 72;
-
     [Header("Audio")]
     AudioController contAudio;
     public AudioClip moverCursor;
