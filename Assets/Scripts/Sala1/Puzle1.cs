@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
+using UnityEngine.UI;
 using TMPro;
 
 public class Puzle1 : MonoBehaviour
@@ -17,9 +18,18 @@ public class Puzle1 : MonoBehaviour
     public GameObject bolaMetal;
     bool estaResuelto = false;
 
+    public DesplSala1 desp;
+    public Button botonAtras;
+
+    Camera camara;
+    public Button abrirPuzle;
+    public Button cerrarPuzle;
+    public GameObject posicionRetorno;
 
     private void Start()
     {
+        camara = Camera.main;
+
         numeroRevelado = Random.Range(1000, 10000).ToString();
         for (int i = 0; i < 4; i++)
         {
@@ -35,26 +45,27 @@ public class Puzle1 : MonoBehaviour
 
     public void AbrirLaberinto()
     {
-        foreach (TextMeshProUGUI te in textoMarcadores)
-        {
-            if (estaResuelto)
-                te.gameObject.SetActive(true);
-            else
-                te.gameObject.SetActive(false);
-        }
+        
         laberintoTablero.gameObject.SetActive(true);
         bolaMetal.SetActive(true);
+        botonAtras.interactable = false;
+        cerrarPuzle.interactable = true;
+        abrirPuzle.interactable = false;
+        //desplazar la cámara al punto determinado, con la rotación adecuada
+
     }
 
     public void CerrarLaberinto()
     {
-        foreach (TextMeshProUGUI te in textoMarcadores)
-        {
-            te.gameObject.SetActive(false);
-        }
+        cerrarPuzle.interactable = false;
+        abrirPuzle.interactable = true;
         //se recoloca la bola en el inicio
         bolaMetal.transform.position = posicionInicialBola;
         laberintoTablero.gameObject.SetActive(false);
+        botonAtras.interactable = true;
+        //devolver la cámara al punto que debería estar, con la rotación adecuada
+        camara.transform.position = posicionRetorno.transform.position;
+        camara.transform.rotation = posicionRetorno.transform.rotation;
     }
 
     public void ReiniciarMarcadores()
@@ -64,7 +75,7 @@ public class Puzle1 : MonoBehaviour
         {
             marcadores[i].GetComponent<SpriteRenderer>().color = new Color(0, 0, 0, 1);
             marcadoresActivados[i] = false;
-            textoMarcadores[i].gameObject.SetActive(false);
+            //textoMarcadores[i].gameObject.SetActive(false);
         }
         bolaMetal.transform.position = posicionInicialBola;
     }
@@ -85,10 +96,11 @@ public class Puzle1 : MonoBehaviour
         if (yaEstanTodos)
         {
             estaResuelto = true;
-            foreach (TextMeshProUGUI texto in textoMarcadores)
+            desp.SetB1(estaResuelto);
+            /*foreach (TextMeshProUGUI texto in textoMarcadores)
             {
                 texto.gameObject.SetActive(true);
-            }
+            }*/
         }
 
     }
@@ -112,11 +124,6 @@ public class Puzle1 : MonoBehaviour
     public bool GetEstaResuelto()
     {
         return estaResuelto;
-    }
-
-    private void Update()
-    {
-        
     }
 
 }

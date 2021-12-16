@@ -45,7 +45,9 @@ public class TituloJuego : MonoBehaviour
     public void CargarPartida()
     {
         //En la escena se cargará en qué estado estaban los puzles
-        string nombreEscena = PlayerPrefs.GetString("EscenaActual");
-        Initiate.Fade(nombreEscena, Color.black, 1f);
+        int numeroEscena = PlayerPrefs.GetInt("EscenaActual", 2);
+
+        SceneManager.LoadScene(numeroEscena);
+
     }
 }

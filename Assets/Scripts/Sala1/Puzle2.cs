@@ -17,17 +17,24 @@ public class Puzle2 : MonoBehaviour
     List<int> indices = new List<int>();
 
     public GameObject puzleContenedor;
+    public GameObject textoPuzle;
     [SerializeField]
     Vector2 posicionActual;
     [SerializeField]
     Vector2 posicionObjetivo;
     GameObject l1, l2;
 
+    float xInicial;
+    float yInicial;
+    float zInicial;
 
     bool estaResuelto;
 
+    public DesplSala1 desp;
+    public Button botonAtras;
 
-
+    public Button abrirPuzle;
+    public Button cerrarPuzle;
 
     // Start is called before the first frame update
     void Start()
@@ -108,12 +115,19 @@ public class Puzle2 : MonoBehaviour
     public void AbrirPuzleLibros()
     {
         puzleContenedor.SetActive(true);
+        textoPuzle.SetActive(true);
+        cerrarPuzle.interactable = true;
+        abrirPuzle.interactable = false;
     }
 
     public void CerrarPuzleLibros()
     {
+        cerrarPuzle.interactable = false;
+        abrirPuzle.interactable = true;
         puzleContenedor.SetActive(false);
+        textoPuzle.SetActive(false);
     }
+
     public void SeleccionarLibro(GameObject lib)
     {
 
@@ -204,7 +218,7 @@ public class Puzle2 : MonoBehaviour
                 resuelto = false;
             }
         }
-
+        desp.SetB2(estaResuelto);
         return resuelto;
     }
 

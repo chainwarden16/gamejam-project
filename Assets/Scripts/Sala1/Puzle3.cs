@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using System.Linq;
 
 public class Puzle3 : MonoBehaviour
@@ -10,8 +11,15 @@ public class Puzle3 : MonoBehaviour
     List<int> ladosCubo = new List<int>();
     [SerializeField]
     List<int> solucionCubo = new List<int>();
+    
     public List<LadoCubo> ladosFisicos;
     public List<Material> materialesColores;
+    public GameObject contenedorCubo;
+    public Button botonCerrarPuzle;
+    public Button botonAbrirPuzle;
+
+    public DesplSala1 desp;
+    public Button botonAtras;
 
     void Start() //habrá 6 colores aleatorios: rojo, azul, amarillo, verde, blanco y morado. Irán numerados de 0 a 5
     {
@@ -37,9 +45,14 @@ public class Puzle3 : MonoBehaviour
 
     }
 
+    public void AbrirPuzle()
+    {
+        botonAtras.interactable = false;
+    }
+
     public void CerrarPuzle()
     {
-
+        botonAtras.interactable = true;
     }
 
     public bool ComprobarSiEstaResuelto()
@@ -54,7 +67,7 @@ public class Puzle3 : MonoBehaviour
                 break;
             }
         }
-
+        desp.SetB3(estaResuelto);
         return estaResuelto;
     }
 

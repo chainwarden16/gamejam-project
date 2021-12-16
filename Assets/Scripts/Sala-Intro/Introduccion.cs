@@ -24,6 +24,7 @@ public class Introduccion : MonoBehaviour
 
     public void EmpezarEscapeRoom()
     {
+        PlayerPrefs.DeleteAll();
         Initiate.Fade("Sala1", Color.black, 1f);
     }
 

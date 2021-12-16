@@ -14,6 +14,7 @@ public class PuertaSalidaIntro : MonoBehaviour
 
     private void OnMouseDown()
     {
+        
         intro.EmpezarEscapeRoom();
     }
 
