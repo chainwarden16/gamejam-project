@@ -46,7 +46,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        PlayerPrefs.DeleteAll();
+        //PlayerPrefs.DeleteAll();
         salaOponente = PlayerPrefs.GetInt("SalaActualOponente", 1);
         ReiniciarEstadoContador();
 
