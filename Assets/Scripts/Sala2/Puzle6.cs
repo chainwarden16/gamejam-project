@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class Puzle6 : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class Puzle6 : MonoBehaviour
     [SerializeField]
     int piezasColocadas;
     public GameObject hanoi;
+    public TextMeshProUGUI textoIndicador;
 
     [Header("Varillas del puzle")]
     public Varilla varilla1;
@@ -17,11 +19,6 @@ public class Puzle6 : MonoBehaviour
 
     [SerializeField] 
     Donut discoSeleccionado;
-
-
-    [Header("Puzle de gatos")]
-    bool gatosAlimentados;
-    public GameObject gatos;
 
     [SerializeField]
     bool sePuedeMoverDisco;
@@ -35,6 +32,10 @@ public class Puzle6 : MonoBehaviour
         manager = FindObjectOfType<GameManager>();
     }
 
+    public void CerrarPuzleHanoi()
+    {
+        Initiate.Fade("sala2", Color.black, 1f);
+    }
 
     public void ComprobarEstadoHanoi()
     {
@@ -92,11 +93,31 @@ public class Puzle6 : MonoBehaviour
     public void SeleccionarDisco(Donut disco)
     {
         discoSeleccionado = disco;
+
+        switch (disco.GetSize())
+        {
+            case 1:
+                textoIndicador.text = "Green";
+                break;
+            case 2:
+                textoIndicador.text = "Red";
+                break;
+            case 3:
+                textoIndicador.text = "Yellow";
+                break;
+            case 4:
+                textoIndicador.text = "White";
+                break;
+            case 10:
+                textoIndicador.text = "Blue";
+                break;
+        }
     }
 
     public void DeseleccionarDisco()
     {
         discoSeleccionado = null;
+        textoIndicador.text = "None";
     }
 
 
