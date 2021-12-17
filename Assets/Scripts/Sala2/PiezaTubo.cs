@@ -52,7 +52,7 @@ public class PiezaTubo : MonoBehaviour
 
     private void OnMouseOver()
     {
-        Debug.Log("Estoy sobre la pieza "+gameObject.name+" que tiene estadoGiro "+estadoGiro);
+        //Debug.Log("Estoy sobre la pieza "+gameObject.name+" que tiene estadoGiro "+estadoGiro);
     }
 
 }

@@ -41,12 +41,12 @@ public class Puzle5 : MonoBehaviour
             if(piezaActual.GetEstadoGiro() != estadosGiroSolucion[i])
             {
                 resuelto = false;
-                Debug.Log("La pieza " + piezaActual.gameObject.name + " no coincide con el índice. Debería de tener índice: " + estadosGiroSolucion[i] + " y tiene: " + piezaActual.GetEstadoGiro());
+                //Debug.Log("La pieza " + piezaActual.gameObject.name + " no coincide con el índice. Debería de tener índice: " + estadosGiroSolucion[i] + " y tiene: " + piezaActual.GetEstadoGiro());
                 break;
             }
             else
             {
-                Debug.Log("Coindicen en el índice "+i);
+                //Debug.Log("Coindicen en el índice "+i);
             }
         }
 
