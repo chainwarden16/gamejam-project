@@ -50,4 +50,10 @@ public class TituloJuego : MonoBehaviour
         SceneManager.LoadScene(numeroEscena);
 
     }
+
+    public void IrAlTitulo()
+    {
+        Debug.Log("Vuelvo al titulo");
+        Initiate.Fade("Titulo", Color.black, 1f);
+    }
 }

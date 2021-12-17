@@ -2617,23 +2617,23 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: 'Welcome. You have been randomly selected to participate in an escape room.
-    You will compete against another player to complete four challenges. Failure
-    will result in execution. The winner will regain their freedom.
+    You will compete against another player to complete three challenges. Failure
+    or refusal will result in execution. The winner will regain their freedom.
 
 
     Interact
     with anything you see, for it might hide a clue to progress. There is a token
     hidden in one of thre rooms that will let you skip one puzzle. Whenever one of
     you completes a room, the other''s current level progress will be reset. All
-    puzzles should be familiar to you, but...
+    puzzles should be familiar to you. If you stop solving one, its progress will
+    be reset.
 
 
-    Last but not least, remember
-    to smile; nobody likes to see a sour face.
+    Last but not least, remember to smile; nobody likes to see a
+    sour face.
 
 
-    Step through the door to your
-    left to begin.'
+    Step through the door to your left to begin.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

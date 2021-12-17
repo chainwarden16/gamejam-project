@@ -37,7 +37,7 @@ public class DespSala2 : MonoBehaviour
         camara.transform.position = pc1.transform.position;
         camara.transform.rotation = pc1.transform.rotation;
         regreso.SetNivelPosicion(1);
-
+        botonDenMic.interactable = true;
         //se desactivan todos menos el de regresar
         DesctivarBotonesPuzles();
     }
