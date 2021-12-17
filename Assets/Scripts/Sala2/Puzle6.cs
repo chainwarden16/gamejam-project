@@ -28,21 +28,13 @@ public class Puzle6 : MonoBehaviour
     bool estaResuelto;
 
     Inventario inventario;
+    GameManager manager;
 
-    public void AbrirGatos()
+    private void Start()
     {
-
+        manager = FindObjectOfType<GameManager>();
     }
 
-    public void CerrarGatos()
-    {
-
-    }
-
-    public void ComprobarEstadoGatos()
-    {
-
-    }
 
     public void ComprobarEstadoHanoi()
     {
@@ -69,18 +61,12 @@ public class Puzle6 : MonoBehaviour
 
         estaResuelto = resuelto;
 
+        if (manager != null)
+        {
+            manager.SetPuzleResuelto(5, estaResuelto);
+        }
     }
 
-    public void CerrarHanoi()
-    {
-
-    }
-
-    public void AbrirHanoi()
-    {
-
-
-    }
 
     public void SePuedeMoverDisco()
     {

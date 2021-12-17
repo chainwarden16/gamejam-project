@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Puzle2 : MonoBehaviour
@@ -30,15 +31,21 @@ public class Puzle2 : MonoBehaviour
 
     bool estaResuelto;
 
-    public DesplSala1 desp;
-    public Button botonAtras;
+    //public DesplSala1 desp;
+    //public Button botonAtras;
 
-    public Button abrirPuzle;
+    //public Button abrirPuzle;
     public Button cerrarPuzle;
+    GameManager manager;
+    //public GameObject posicionRetorno;
+    //public GameObject posicionVerPuzle;
+    //Camera camara;
 
     // Start is called before the first frame update
     void Start()
     {
+        manager = FindObjectOfType<GameManager>();
+        //camara = Camera.main;
         //Se escoge 18 libros aleatorios de entre los 24 disponibles y se colocan. Luego, se mira cuál sería su orden correcto (tanto alfabético como por color) y se guarda para compararlo
         //cada vez que el jugador intercambie dos libros de lugar
 
@@ -104,6 +111,12 @@ public class Puzle2 : MonoBehaviour
                 li.enabled = false;
 
             }
+            if (manager != null)
+            {
+
+                manager.SetPuzleResuelto(1, true);
+
+            }
         }
         else
         {
@@ -112,20 +125,34 @@ public class Puzle2 : MonoBehaviour
 
     }
 
+    /*
     public void AbrirPuzleLibros()
     {
         puzleContenedor.SetActive(true);
         textoPuzle.SetActive(true);
         cerrarPuzle.interactable = true;
-        abrirPuzle.interactable = false;
+        //abrirPuzle.interactable = false;
+        //botonAtras.interactable = false;
+
+        //la cámara vuelve a su sitio
+        //camara.transform.position = posicionVerPuzle.transform.position;
+        //camara.transform.rotation = posicionVerPuzle.transform.rotation;
     }
+    */
 
     public void CerrarPuzleLibros()
     {
-        cerrarPuzle.interactable = false;
-        abrirPuzle.interactable = true;
-        puzleContenedor.SetActive(false);
-        textoPuzle.SetActive(false);
+        //cerrarPuzle.interactable = false;
+        //abrirPuzle.interactable = true;
+        //botonAtras.interactable = false;
+        //puzleContenedor.SetActive(false);
+        //textoPuzle.SetActive(false);
+
+        //la cámara vuelve a su sitio con su rotación adecuada, tal como cabría esperar
+        //camara.transform.position = posicionRetorno.transform.position;
+        //camara.transform.rotation = posicionRetorno.transform.rotation;
+
+        Initiate.Fade("Sala1 old", Color.black, 1f);
     }
 
     public void SeleccionarLibro(GameObject lib)
@@ -213,17 +240,22 @@ public class Puzle2 : MonoBehaviour
 
         for (int i = 0; i < libros.Count; i++)
         {
-            if(libros[i] != librosSolucion[i])
+            if (libros[i] != librosSolucion[i])
             {
                 resuelto = false;
             }
         }
-        desp.SetB2(estaResuelto);
+        //desp.SetB2(estaResuelto);
+
         return resuelto;
     }
 
     public void SetEstaResuelto(bool valor)
     {
+        if (manager != null)
+        {
+            manager.SetPuzleResuelto(1, valor);
+        }
         estaResuelto = valor;
     }
 }

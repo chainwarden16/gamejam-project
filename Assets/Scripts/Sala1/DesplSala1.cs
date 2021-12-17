@@ -10,17 +10,12 @@ public class DesplSala1 : MonoBehaviour
     public GameObject pc1, pc2, pc3, pc4, fondoSala;
     public List<Button> botones; // son 6 elementos
     public Button abrirPuzle1, abrirPuzle2, abrirPuzle3;
-    
+
     MovRegreso1 regreso;
 
     Camera camara;
+    [SerializeField]
     GameManager manager;
-    [SerializeField]
-    bool puzle1Resuelto;
-    [SerializeField]
-    bool puzle2Resuelto;
-    [SerializeField]
-    bool puzle3Resuelto;
 
     private void Start()
     {
@@ -45,7 +40,6 @@ public class DesplSala1 : MonoBehaviour
         camara.transform.position = pc2.transform.position;
         camara.transform.rotation = pc2.transform.rotation;
         regreso.SetNivelPosicion(1);
-        abrirPuzle2.interactable = true;
         //se desactivan todos menos el de regresar
         DesctivarBotones();
     }
@@ -64,6 +58,7 @@ public class DesplSala1 : MonoBehaviour
         camara.transform.position = pc4.transform.position;
         camara.transform.rotation = pc4.transform.rotation;
         regreso.SetNivelPosicion(1);
+        abrirPuzle2.interactable = true;
         //se desactivan todos menos el de regresar
         DesctivarBotones();
     }
@@ -82,10 +77,16 @@ public class DesplSala1 : MonoBehaviour
 
     public void PasarASiguienteSala()
     {
-        if(puzle1Resuelto && puzle2Resuelto && puzle3Resuelto)
+        if (manager != null)
         {
-            manager.GuardarSalaCompletada(SceneManager.GetActiveScene().buildIndex);
+
+            if (manager.GetPuzlesResueltos()[0] && manager.GetPuzlesResueltos()[1] && manager.GetPuzlesResueltos()[2])
+            {
+                manager.GuardarSalaCompletada(SceneManager.GetActiveScene().buildIndex+2, "Sala2");
+            }
+
         }
+
     }
 
     public List<Button> GetBotonesSala()
@@ -93,6 +94,7 @@ public class DesplSala1 : MonoBehaviour
         return botones;
     }
 
+    /*
     public void SetB1(bool haSuperadoPuzle)
     {
         puzle1Resuelto = haSuperadoPuzle;
@@ -107,10 +109,11 @@ public class DesplSala1 : MonoBehaviour
     {
         puzle3Resuelto = haSuperadoPuzle;
     }
+    */
 
     private void DesctivarBotones()
     {
-        foreach(Button boto in botones)
+        foreach (Button boto in botones)
         {
             boto.interactable = false;
         }

@@ -14,21 +14,16 @@ public class Puzle5 : MonoBehaviour
     public GameObject tubos;
 
     bool estaResuelto;
+    GameManager manager;
 
     private void Start()
     {
-        
-    }
-
-    public void AbrirTubos()
-    {
-
-
+        manager = FindObjectOfType<GameManager>();
     }
 
     public void CerrarTubos()
     {
-
+        Initiate.Fade("Sala2", Color.black, 1f);
     }
 
     public void ComprobarEstadoPuzle()
@@ -58,6 +53,10 @@ public class Puzle5 : MonoBehaviour
         if (resuelto)
         {
             estaResuelto = true;
+            if(manager != null)
+            {
+                manager.SetPuzleResuelto(4, true);
+            }
         }
         else
         {

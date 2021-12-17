@@ -7,11 +7,11 @@ public class GameManager : MonoBehaviour
 {
     [Header("Progreso del oponente")]
     [SerializeField]
-    float contadorOponente = 0f;
+    float contadorOponente = 240f;
     [SerializeField]
     int salaOponente;
-    const float minimoTiempo = 240f;
-    const float maximoTiempo = 360f;
+    const float minimoTiempo = 280f;
+    const float maximoTiempo = 400f;
 
     [Header("Progreso del jugador")]
     [SerializeField]
@@ -20,6 +20,29 @@ public class GameManager : MonoBehaviour
 
     [Header("Puzle actual para comodín")]
     int puzleActual;
+
+    [Header("Puzles ya resueltos")]
+    [Tooltip("Van del 1 al 9,empezando por el 0. Una vez todos estén resueltos se irá a la pantalla de victoria")]
+    [SerializeField]
+    List<bool> puzlesResueltos = new List<bool>() { false, false, false, false, false, false, false, false, false };
+
+    #region Métodos de Unity
+
+    public static GameManager _instance;
+
+    private void Awake()
+    {
+        if (_instance == null)
+        {
+
+            _instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(this.gameObject);
+        }
+    }
 
     private void Start()
     {
@@ -76,16 +99,18 @@ public class GameManager : MonoBehaviour
 
     }
 
-    public void GuardarSalaCompletada(int numero)
+    #endregion
+
+    public void GuardarSalaCompletada(int numero, string nombreEscena)
     {
-        PlayerPrefs.SetInt("EscenaActual", numero + 1);
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        PlayerPrefs.SetInt("EscenaActual", numero);
+        SceneManager.LoadScene(nombreEscena);
     }
 
     //Detiene el contador de tiempo y lo resetea dependiendo de la cantidad
     public void ReiniciarEstadoContador()
     {
-        contadorOponente = Random.Range(minimoTiempo, maximoTiempo); //240, 360
+        contadorOponente = Random.Range(minimoTiempo, maximoTiempo);
     }
 
     public void GuardarProgresoOponente()
@@ -101,6 +126,21 @@ public class GameManager : MonoBehaviour
     public void SetPuzleActual(int numero)
     {
         puzleActual = numero;
+    }
+
+    public List<bool> GetPuzlesResueltos()
+    {
+        return puzlesResueltos;
+    }
+
+    public void SetPuzleResuelto(int indice, bool resultado)
+    {
+        if (indice <= puzlesResueltos.Count - 1)
+        {
+
+            puzlesResueltos[indice] = resultado;
+
+        }
     }
 
 }
