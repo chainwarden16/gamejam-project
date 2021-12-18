@@ -82,7 +82,7 @@ public class DesplSala1 : MonoBehaviour
 
             if (manager.GetPuzlesResueltos()[0] && manager.GetPuzlesResueltos()[1] && manager.GetPuzlesResueltos()[2])
             {
-                manager.GuardarSalaCompletada(SceneManager.GetActiveScene().buildIndex+2, "Sala2");
+                manager.GuardarSalaCompletada(SceneManager.GetActiveScene().buildIndex+3, "Sala2");
             }
 
         }

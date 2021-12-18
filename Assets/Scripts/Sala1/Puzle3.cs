@@ -11,7 +11,7 @@ public class Puzle3 : MonoBehaviour
     [SerializeField]
     List<int> ladosCubo = new List<int>();
     [SerializeField]
-    List<int> solucionCubo = new List<int>();
+    List<int> solucionCubo = new List<int>() { 0, 5, 1, 5, 4, 3, 1, 2, 3, 5, 4, 4, 1, 0, 0, 1, 5, 1, 2, 5, 2, 3, 4, 2, 4, 3, 5 };
 
     public List<LadoCubo> ladosFisicos;
     public List<Material> materialesColores;
@@ -37,9 +37,10 @@ public class Puzle3 : MonoBehaviour
         for (int i = 0; i < ladosFisicos.Count; i++)
         {
 
+            //int colorInicial = solucionCubo[i];
             int colorInicial = Random.Range(0, 6);
             ladosCubo.Add(colorInicial);
-            solucionCubo.Add(Random.Range(0, 6));
+            //solucionCubo.Add(Random.Range(0, 6));
             ladosFisicos[i].SetIndice(i);
 
             ladosFisicos[i].gameObject.AddComponent<BoxCollider>();
