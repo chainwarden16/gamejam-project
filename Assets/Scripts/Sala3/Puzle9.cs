@@ -10,14 +10,10 @@ public class Puzle9 : MonoBehaviour
     [SerializeField]
     bool boton1, boton2, boton3, boton4;
 
-    List<int> posiblesValores1 = new List<int> { 3, 5, 8 }; //azul
-    List<int> posiblesValores2 = new List<int> { 1, 4, 9 }; //rojo
-    List<int> posiblesValores3 = new List<int> { 6, 0 }; //verde
-    List<int> posiblesValores4 = new List<int> { 2, 7 }; //amarillo
-
     [SerializeField]
     int valor1, valor2, valor3, valor4;
-    public GameObject luz1, luz2, luz3, luz4;
+    public SpriteRenderer luz1, luz2, luz3, luz4;
+    public Sprite luzVerde, luzRoja;
 
     public TextMeshProUGUI textoContador;
     int contador;
@@ -29,10 +25,10 @@ public class Puzle9 : MonoBehaviour
     {
         manager = FindObjectOfType<GameManager>();
 
-        valor1 = posiblesValores1[Random.Range(0, 3)];
-        valor2 = posiblesValores2[Random.Range(0, 3)];
-        valor3 = posiblesValores3[Random.Range(0, 2)];
-        valor4 = posiblesValores4[Random.Range(0, 2)];
+        valor1 = PlayerPrefs.GetInt("Digito1", -1);
+        valor2 = PlayerPrefs.GetInt("Digito2", -1);
+        valor3 = PlayerPrefs.GetInt("Digito3", -1);
+        valor4 = PlayerPrefs.GetInt("Digito4", -1);
 
         contador = 0;
         textoContador.text = contador.ToString();
@@ -175,5 +171,9 @@ public class Puzle9 : MonoBehaviour
         estaResuelto = true;
     }
 
+    public void CerrarPuzle9()
+    {
+        Initiate.Fade("Sala3", Color.black, 1f);
+    }
 
 }
