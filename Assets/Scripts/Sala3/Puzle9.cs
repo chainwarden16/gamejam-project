@@ -23,8 +23,12 @@ public class Puzle9 : MonoBehaviour
     int contador;
     float temporizador;
 
+    GameManager manager;
+
     void Start()
     {
+        manager = FindObjectOfType<GameManager>();
+
         valor1 = posiblesValores1[Random.Range(0, 3)];
         valor2 = posiblesValores2[Random.Range(0, 3)];
         valor3 = posiblesValores3[Random.Range(0, 2)];
@@ -78,6 +82,11 @@ public class Puzle9 : MonoBehaviour
         else
         {
             estadoResuelto = false;
+        }
+
+        if(manager != null)
+        {
+            manager.SetPuzleResuelto(8, estadoResuelto);
         }
 
         estaResuelto = estadoResuelto;

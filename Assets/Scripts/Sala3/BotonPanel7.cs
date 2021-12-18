@@ -38,10 +38,7 @@ public class BotonPanel7 : MonoBehaviour
         {
             textoPantalla.text = textoPantalla.text.Remove(textoPantalla.text.Length-1, 1);
         }
-        else
-        {
-            Debug.Log("Está resuelto el puzle 7.");
-        }
+
     }
 
 }

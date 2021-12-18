@@ -14,9 +14,11 @@ public class Puzle8 : MonoBehaviour
     List<GameObject> piezasColocadas = new List<GameObject>() { };
 
     bool estaResuelto;
+    GameManager manager;
 
     void Start()
     {
+        manager = FindObjectOfType<GameManager>();
         for (int i = 0; i < sizePuzle; i++)
         {
             solucionPuzle.Add(i);
@@ -79,6 +81,10 @@ public class Puzle8 : MonoBehaviour
 
         }
 
+        if(manager != null)
+        {
+            manager.SetPuzleResuelto(7, resuelto);
+        }
         estaResuelto = resuelto;
     }
 
