@@ -472,7 +472,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "Message from the central office: \r\n\r\nWe are opening an investigation
-    to discover who keeps tamperig the library's database. The electronic system's
+    to discover who keeps tampering with the library's database. The electronic system's
     sorting criteria is registering both names and groups wrong. Fix it as soon as
     possible."
   m_isRightToLeft: 0
