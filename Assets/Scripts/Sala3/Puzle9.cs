@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class Puzle9 : MonoBehaviour
 {
@@ -12,12 +13,13 @@ public class Puzle9 : MonoBehaviour
 
     [SerializeField]
     int valor1, valor2, valor3, valor4;
-    public SpriteRenderer luz1, luz2, luz3, luz4;
+    public Image luz1, luz2, luz3, luz4;
     public Sprite luzVerde, luzRoja;
 
     public TextMeshProUGUI textoContador;
     int contador;
     float temporizador;
+    int ultimoValorSeleccionado;
 
     GameManager manager;
 
@@ -104,63 +106,56 @@ public class Puzle9 : MonoBehaviour
         switch (color)
         {
             case 0: //azul
-                if (cifra1 == valor1 || cifra2 == valor1)
+                if (cifra1 == valor1 || cifra2 == valor1 && ultimoValorSeleccionado < valor1)
                 {
                     boton1 = true;
-                    //se cambia la imagen del primer boton
+                    //se cambia la imagen del boton
+                    luz1.sprite = luzVerde;
+                    ultimoValorSeleccionado = valor1;
                 }
                 else
                 {
-                    boton1 = false;
-                    boton2 = false;
-                    boton3 = false;
-                    boton4 = false;
-                    //se cambian todos los botones
+                    DesactivarBotones();
                 }
                 break;
             case 1: //rojo
-                if (cifra1 == valor2 || cifra2 == valor2)
+                if (cifra1 == valor2 || cifra2 == valor2 && ultimoValorSeleccionado < valor2)
                 {
                     boton2 = true;
-                    //se cambia la imagen del primer boton
+                    //se cambia la imagen del boton
+                    luz2.sprite = luzVerde;
+                    ultimoValorSeleccionado = valor2;
+
                 }
                 else
                 {
-                    boton1 = false;
-                    boton2 = false;
-                    boton3 = false;
-                    boton4 = false;
-                    //se cambian todos los botones
+                    DesactivarBotones();
                 }
                 break;
             case 2: //verde
-                if (cifra1 == valor3 || cifra2 == valor3)
+                if (cifra1 == valor3 || cifra2 == valor3 && ultimoValorSeleccionado < valor3)
                 {
                     boton3 = true;
-                    //se cambia la imagen del primer boton
+                    //se cambia la imagen del boton
+                    luz3.sprite = luzVerde;
+                    ultimoValorSeleccionado = valor3;
                 }
                 else
                 {
-                    boton1 = false;
-                    boton2 = false;
-                    boton3 = false;
-                    boton4 = false;
-                    //se cambian todos los botones
+                    DesactivarBotones();
                 }
                 break;
             case 3: //amarillo
-                if (cifra1 == valor4 || cifra2 == valor4)
+                if (cifra1 == valor4 || cifra2 == valor4 && ultimoValorSeleccionado < valor4)
                 {
                     boton4 = true;
-                    //se cambia la imagen del primer boton
+                    //se cambia la imagen del boton
+                    luz4.sprite = luzVerde;
+                    ultimoValorSeleccionado = valor4;
                 }
                 else
                 {
-                    boton1 = false;
-                    boton2 = false;
-                    boton3 = false;
-                    boton4 = false;
-                    //se cambian todos los botones
+                    DesactivarBotones();
                 }
                 break;
         }
@@ -169,6 +164,21 @@ public class Puzle9 : MonoBehaviour
     public void SaltarPuzle()
     {
         estaResuelto = true;
+    }
+
+    private void DesactivarBotones()
+    {
+        boton1 = false;
+        boton2 = false;
+        boton3 = false;
+        boton4 = false;
+        //se cambian todos los botones
+        luz1.sprite = luzRoja;
+        luz2.sprite = luzRoja;
+        luz3.sprite = luzRoja;
+        luz4.sprite = luzRoja;
+
+        ultimoValorSeleccionado = 0;
     }
 
     public void CerrarPuzle9()

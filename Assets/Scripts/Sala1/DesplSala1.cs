@@ -16,12 +16,14 @@ public class DesplSala1 : MonoBehaviour
     Camera camara;
     [SerializeField]
     GameManager manager;
+    AbrirPuzles mecanismoAbrirPuzles;
 
     private void Start()
     {
         camara = Camera.main;
         manager = FindObjectOfType<GameManager>();
         regreso = FindObjectOfType<MovRegreso1>();
+        mecanismoAbrirPuzles = FindObjectOfType<AbrirPuzles>();
 
     }
 
@@ -30,7 +32,12 @@ public class DesplSala1 : MonoBehaviour
         camara.transform.position = pc1.transform.position;
         camara.transform.rotation = pc1.transform.rotation;
         regreso.SetNivelPosicion(1);
-        abrirPuzle1.interactable = true;
+        if (!mecanismoAbrirPuzles.ComprobarSiEstaResuelto(0))
+        {
+
+            abrirPuzle1.interactable = true;
+
+        }
         //se desactivan todos menos el de regresar
         DesctivarBotones();
     }
@@ -58,7 +65,14 @@ public class DesplSala1 : MonoBehaviour
         camara.transform.position = pc4.transform.position;
         camara.transform.rotation = pc4.transform.rotation;
         regreso.SetNivelPosicion(1);
-        abrirPuzle2.interactable = true;
+
+        if (!mecanismoAbrirPuzles.ComprobarSiEstaResuelto(1))
+        {
+
+            abrirPuzle2.interactable = true;
+
+        }
+
         //se desactivan todos menos el de regresar
         DesctivarBotones();
     }
@@ -82,7 +96,7 @@ public class DesplSala1 : MonoBehaviour
 
             if (manager.GetPuzlesResueltos()[0] && manager.GetPuzlesResueltos()[1] && manager.GetPuzlesResueltos()[2])
             {
-                manager.GuardarSalaCompletada(SceneManager.GetActiveScene().buildIndex+3, "Sala2");
+                manager.GuardarSalaCompletada(SceneManager.GetActiveScene().buildIndex + 4, "Sala2");
             }
 
         }

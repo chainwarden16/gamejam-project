@@ -7,16 +7,16 @@ public class GameManager : MonoBehaviour
 {
     [Header("Progreso del oponente")]
     [SerializeField]
-    float contadorOponente = 240f;
+    float contadorOponente = 420f;
     [SerializeField]
     int salaOponente;
-    const float minimoTiempo = 280f;
-    const float maximoTiempo = 400f;
+    const float minimoTiempo = 420f;
+    const float maximoTiempo = 480f;
 
     [Header("Progreso del jugador")]
     [SerializeField]
     bool estaReiniciandoSala = false;
-    float contadorGameOver = 4f; //a los 4 segundos, el juego terminará
+    float contadorGameOver = 2f; //a los 4 segundos, el juego terminará
 
     [Header("Puzle actual para comodín")]
     int puzleActual;
@@ -61,29 +61,67 @@ public class GameManager : MonoBehaviour
          * Importante: debido a esto, las soluciones del puzles se deberán recalcular en el start de cada puzle, no en este método
          */
 
-        if (contadorOponente <= 0f && salaOponente < 4)
+        if (contadorOponente <= 0f && salaOponente < 3)
         {
 
 
             if (!estaReiniciandoSala)
+            {
                 salaOponente++;
+
+            }
 
             estaReiniciandoSala = true;
 
 
 
             GuardarProgresoOponente();
-            Initiate.Fade(SceneManager.GetActiveScene().name, Color.black, 1f);
+
+            switch (PlayerPrefs.GetInt("EscenaActual"))
+            {
+                case 7:
+
+                    puzlesResueltos[3] = false;
+                    puzlesResueltos[4] = false;
+                    puzlesResueltos[5] = false;
+
+                    Initiate.Fade("Sala2", Color.black, 1f);
+                    break;
+                case 11:
+
+                    puzlesResueltos[6] = false;
+                    puzlesResueltos[7] = false;
+                    puzlesResueltos[8] = false;
+
+                    Initiate.Fade("Sala3", Color.black, 1f);
+
+                    break;
+                default:
+
+                    puzlesResueltos[0] = false;
+                    puzlesResueltos[1] = false;
+                    puzlesResueltos[2] = false;
+
+                    Initiate.Fade("Sala1 old", Color.black, 1f);
+
+                    break;
+            }
+
+
         }
-        else if (salaOponente == 4)
+        else if (salaOponente == 3)
         {
 
             estaReiniciandoSala = true;
             //Aparece un mensaje que dice que estarás atrapado aquí para siempre, y luego Game Over
             if (contadorGameOver <= 0f)
             {
+                for (int i = 0; i < puzlesResueltos.Count; i++)
+                {
+                    puzlesResueltos[i] = false;
+                }
 
-                Initiate.Fade("Fin", Color.black, 1f);
+                Initiate.Fade("Game Over", Color.black, 1f);
             }
             else
             {

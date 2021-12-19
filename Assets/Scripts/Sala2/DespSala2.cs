@@ -18,7 +18,6 @@ public class DespSala2 : MonoBehaviour
     MovRegreso2 regreso;
 
     Camera camara;
-    [SerializeField]
 
 
     private void Start()
@@ -62,7 +61,7 @@ public class DespSala2 : MonoBehaviour
 
             if (manager.GetPuzlesResueltos()[3] && manager.GetPuzlesResueltos()[4] && manager.GetPuzlesResueltos()[5])
             {
-                manager.GuardarSalaCompletada(SceneManager.GetActiveScene().buildIndex + 3, "Sala3");
+                manager.GuardarSalaCompletada(SceneManager.GetActiveScene().buildIndex + 4, "Sala3");
             }
 
         }
