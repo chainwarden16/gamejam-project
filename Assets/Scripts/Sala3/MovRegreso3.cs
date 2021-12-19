@@ -82,7 +82,7 @@ public class MovRegreso3 : MonoBehaviour
 
         }
 
-        nivelPosicion--;
+        //nivelPosicion--;
     }
 
     /*private void DesctivarBotonesPuzles()

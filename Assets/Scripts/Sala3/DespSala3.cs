@@ -78,7 +78,7 @@ public class DespSala3 : MonoBehaviour
 
         camara.transform.position = pasilloDerecha.transform.position;
         camara.transform.rotation = pasilloDerecha.transform.rotation;
-        regreso.SetNivelPosicion(1);
+        regreso.SetNivelPosicion(2);
         //se desactivan todos menos el de regresar
 
     }
@@ -162,11 +162,13 @@ public class DespSala3 : MonoBehaviour
 
         DesctivarBotonesPuzles();
 
-        botonesMapa[8].interactable = true; //jaula 1 abajo
-        botonesMapa[9].interactable = true; //jaula 2 abajo
-        botonesMapa[10].interactable = true; //jaula 3 abajo
-        botonesMapa[11].interactable = true; //jaula 4 abajo
-        botonesMapa[12].interactable = true; //fondo
+        ActivarBoton(8); //jaula 1 abajo
+        ActivarBoton(9); //jaula 2 abajo
+        ActivarBoton(10); //jaula 3 abajo
+        ActivarBoton(11); //jaula 4 abajo
+        ActivarBoton(12); //fondo
+
+
 
         camara.transform.position = bajoEscalera.transform.position;
         camara.transform.rotation = bajoEscalera.transform.rotation;
@@ -185,9 +187,8 @@ public class DespSala3 : MonoBehaviour
 
         DesctivarBotonesPuzles();
 
-        botonesMapa[15].interactable = true; //Puerta
-        botonesMapa[14].interactable = true; //Puzle 7
-
+        ActivarBoton(15);//Puerta
+        ActivarBoton(14);//Puzle 7
 
         camara.transform.position = fondoSalida.transform.position;
         camara.transform.rotation = fondoSalida.transform.rotation;
@@ -212,7 +213,7 @@ public class DespSala3 : MonoBehaviour
         DesctivarBotonesPuzles();
 
         botonesMapa[botonesMapa.Count - 1].interactable = true; //botonAtras
-        botonesMapa[13].interactable = true; //p9
+        ActivarBoton(13); //p9
 
         //se desactivan todos menos el de regresar
 
@@ -281,7 +282,7 @@ public class DespSala3 : MonoBehaviour
 
     private void DesctivarBotonesPuzles()
     {
-        for (int i = 0; i < botonesMapa.Count-2; i++)
+        for (int i = 0; i < botonesMapa.Count - 2; i++)
         {
             botonesMapa[i].interactable = false;
             botonesMapa[i].gameObject.SetActive(false);
