@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class LadoCubo : MonoBehaviour
 {
@@ -9,6 +10,8 @@ public class LadoCubo : MonoBehaviour
     SpriteRenderer meshCara;
     List<Material> materialesColores;
     Puzle3 cubo;
+
+    public AudioClip completo;
 
     private void Start()
     {
@@ -66,7 +69,20 @@ public class LadoCubo : MonoBehaviour
         }
         else
         {
-            Debug.Log("Ya está resuelto.");
+            AudioController audioC = FindObjectOfType<AudioController>();
+
+
+            if (audioC != null)
+            {
+                audioC.PlaySFX(completo);
+            }
+
+            List<LadoCubo> lados = FindObjectsOfType<LadoCubo>().ToList();
+            foreach (LadoCubo lC in lados)
+            {
+                lC.enabled = false;
+            }
+
         }
 
 

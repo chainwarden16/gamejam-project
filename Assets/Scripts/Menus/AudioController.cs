@@ -8,11 +8,11 @@ public class AudioController : MonoBehaviour
     public AudioSource sourceMusica, sourceSFX;
     public AudioClip musicaTitulo;
     public AudioClip musicaDerrota;
-    public AudioClip musicaTutorial;
-    public AudioClip musicaCombate;
+    public AudioClip musicaSala1;
+    public AudioClip musicaSala2;
+    public AudioClip musicaSala3;
     public AudioClip musicaVictoria;
-    public AudioClip musicaConstruccion;
-    public AudioClip musicaIntro;
+    public AudioClip musicaAlarma;
 
     [SerializeField]
     int volumenMusica;

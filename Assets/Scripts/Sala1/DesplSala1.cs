@@ -18,6 +18,10 @@ public class DesplSala1 : MonoBehaviour
     GameManager manager;
     AbrirPuzles mecanismoAbrirPuzles;
 
+    [Header("Audio")]
+    AudioController audioC;
+    public AudioClip abrirPuerta, puertaCerrada;
+
     private void Start()
     {
         camara = Camera.main;
@@ -93,10 +97,16 @@ public class DesplSala1 : MonoBehaviour
     {
         if (manager != null)
         {
+            audioC = FindObjectOfType<AudioController>();
 
             if (manager.GetPuzlesResueltos()[0] && manager.GetPuzlesResueltos()[1] && manager.GetPuzlesResueltos()[2])
             {
+                audioC.PlaySFX(abrirPuerta);
                 manager.GuardarSalaCompletada(SceneManager.GetActiveScene().buildIndex + 4, "Sala2");
+            }
+            else
+            {
+                audioC.PlaySFX(puertaCerrada);
             }
 
         }

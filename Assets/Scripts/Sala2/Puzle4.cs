@@ -24,8 +24,14 @@ public class Puzle4 : MonoBehaviour
     bool estaResuelto;
     GameManager manager;
 
+    [Header("Audio")]
+    AudioController audioC;
+    public AudioClip completo, cancelar;
+
     void Start()
     {
+
+
         manager = FindObjectOfType<GameManager>();
 
         numeroHoras = PlayerPrefs.GetInt("HoraPuzle4", -1); //para cargarlo en la pista del microondas. se debe repetir ahí por si es lo primero que ve
@@ -171,15 +177,28 @@ public class Puzle4 : MonoBehaviour
         {
             estaResuelto = true;
 
-            if(manager != null)
+            audioC = FindObjectOfType<AudioController>();
+
+            if (audioC != null)
+            {
+                audioC.PlaySFX(completo);
+            }
+
+            if (manager != null)
             {
                 manager.SetPuzleResuelto(3, true);
+                this.enabled = false;
             }
         }
     }
 
     public void CerrarReloj()
     {
+        audioC = FindObjectOfType<AudioController>();
+        if (audioC != null)
+        {
+            audioC.PlaySFX(cancelar);
+        }
         Initiate.Fade("Sala2", Color.black, 1f);
     }
 

@@ -16,6 +16,10 @@ public class Puzle5 : MonoBehaviour
     bool estaResuelto;
     GameManager manager;
 
+    [Header("Audio")]
+    AudioController audioC;
+    public AudioClip completo, cancelar;
+
     private void Start()
     {
         manager = FindObjectOfType<GameManager>();
@@ -23,6 +27,12 @@ public class Puzle5 : MonoBehaviour
 
     public void CerrarTubos()
     {
+        audioC = FindObjectOfType<AudioController>();
+        if (audioC != null)
+        {
+            audioC.PlaySFX(cancelar);
+        }
+
         Initiate.Fade("Sala2", Color.black, 1f);
     }
 
@@ -30,7 +40,7 @@ public class Puzle5 : MonoBehaviour
     {
         bool resuelto = true;
 
-        for(int i = 0; i < piezasSolucion.Count; i++)
+        for (int i = 0; i < piezasSolucion.Count; i++)
         {
             PiezaTubo estadoFinal = piezasSolucion[i];
 
@@ -38,22 +48,24 @@ public class Puzle5 : MonoBehaviour
 
             PiezaTubo piezaActual = gridTubos[indice];
 
-            if(piezaActual.GetEstadoGiro() != estadosGiroSolucion[i])
+            if (piezaActual.GetEstadoGiro() != estadosGiroSolucion[i])
             {
                 resuelto = false;
                 //Debug.Log("La pieza " + piezaActual.gameObject.name + " no coincide con el índice. Debería de tener índice: " + estadosGiroSolucion[i] + " y tiene: " + piezaActual.GetEstadoGiro());
                 break;
             }
-            else
-            {
-                //Debug.Log("Coindicen en el índice "+i);
-            }
+
         }
 
         if (resuelto)
         {
             estaResuelto = true;
-            if(manager != null)
+            audioC = FindObjectOfType<AudioController>();
+            if (audioC != null)
+            {
+                audioC.PlaySFX(completo);
+            }
+            if (manager != null)
             {
                 manager.SetPuzleResuelto(4, true);
             }

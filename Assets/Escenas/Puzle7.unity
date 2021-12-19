@@ -271,6 +271,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   numeroAPulsar: 0
   textoPantalla: {fileID: 612877713}
+  seleccionar: {fileID: 8300000, guid: 5048f3ad8d417f44b80b3d8a1f065fdc, type: 3}
+  cancelar: {fileID: 8300000, guid: 61fd34bdc041ef541805d71821755f01, type: 3}
 --- !u!1 &289796819
 GameObject:
   m_ObjectHideFlags: 0
@@ -574,6 +576,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   numeroAPulsar: 8
   textoPantalla: {fileID: 612877713}
+  seleccionar: {fileID: 8300000, guid: 5048f3ad8d417f44b80b3d8a1f065fdc, type: 3}
+  cancelar: {fileID: 8300000, guid: 61fd34bdc041ef541805d71821755f01, type: 3}
 --- !u!1 &565157578
 GameObject:
   m_ObjectHideFlags: 0
@@ -935,6 +939,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   numeroAPulsar: 2
   textoPantalla: {fileID: 612877713}
+  seleccionar: {fileID: 8300000, guid: 5048f3ad8d417f44b80b3d8a1f065fdc, type: 3}
+  cancelar: {fileID: 8300000, guid: 61fd34bdc041ef541805d71821755f01, type: 3}
 --- !u!1 &653919077
 GameObject:
   m_ObjectHideFlags: 0
@@ -1083,6 +1089,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   numeroAPulsar: 6
   textoPantalla: {fileID: 612877713}
+  seleccionar: {fileID: 8300000, guid: 5048f3ad8d417f44b80b3d8a1f065fdc, type: 3}
+  cancelar: {fileID: 8300000, guid: 61fd34bdc041ef541805d71821755f01, type: 3}
 --- !u!1 &699460261
 GameObject:
   m_ObjectHideFlags: 0
@@ -1638,6 +1646,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   numeroAPulsar: 3
   textoPantalla: {fileID: 612877713}
+  seleccionar: {fileID: 8300000, guid: 5048f3ad8d417f44b80b3d8a1f065fdc, type: 3}
+  cancelar: {fileID: 8300000, guid: 61fd34bdc041ef541805d71821755f01, type: 3}
 --- !u!1 &960785935
 GameObject:
   m_ObjectHideFlags: 0
@@ -1786,6 +1796,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   numeroAPulsar: 16
   textoPantalla: {fileID: 612877713}
+  seleccionar: {fileID: 8300000, guid: 5048f3ad8d417f44b80b3d8a1f065fdc, type: 3}
+  cancelar: {fileID: 8300000, guid: 61fd34bdc041ef541805d71821755f01, type: 3}
 --- !u!1 &991468300
 GameObject:
   m_ObjectHideFlags: 0
@@ -2347,6 +2359,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   numeroAPulsar: 7
   textoPantalla: {fileID: 612877713}
+  seleccionar: {fileID: 8300000, guid: 5048f3ad8d417f44b80b3d8a1f065fdc, type: 3}
+  cancelar: {fileID: 8300000, guid: 61fd34bdc041ef541805d71821755f01, type: 3}
 --- !u!1 &1206180253
 GameObject:
   m_ObjectHideFlags: 0
@@ -2627,6 +2641,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   numeroAPulsar: 12
   textoPantalla: {fileID: 612877713}
+  seleccionar: {fileID: 8300000, guid: 5048f3ad8d417f44b80b3d8a1f065fdc, type: 3}
+  cancelar: {fileID: 8300000, guid: 61fd34bdc041ef541805d71821755f01, type: 3}
 --- !u!1 &1229247802
 GameObject:
   m_ObjectHideFlags: 0
@@ -3290,6 +3306,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   numeroAPulsar: 9
   textoPantalla: {fileID: 612877713}
+  seleccionar: {fileID: 8300000, guid: 5048f3ad8d417f44b80b3d8a1f065fdc, type: 3}
+  cancelar: {fileID: 8300000, guid: 61fd34bdc041ef541805d71821755f01, type: 3}
 --- !u!1 &1668194563
 GameObject:
   m_ObjectHideFlags: 0
@@ -3492,6 +3510,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textoPantalla: {fileID: 612877713}
+  completo: {fileID: 8300000, guid: 5db4f84d8885de7469983e3b50d4575b, type: 3}
+  cancelar: {fileID: 8300000, guid: 61fd34bdc041ef541805d71821755f01, type: 3}
 --- !u!1 &1817882489
 GameObject:
   m_ObjectHideFlags: 0
@@ -3640,6 +3660,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   numeroAPulsar: 1
   textoPantalla: {fileID: 612877713}
+  seleccionar: {fileID: 8300000, guid: 5048f3ad8d417f44b80b3d8a1f065fdc, type: 3}
+  cancelar: {fileID: 8300000, guid: 61fd34bdc041ef541805d71821755f01, type: 3}
 --- !u!1 &1894454991
 GameObject:
   m_ObjectHideFlags: 0
@@ -3788,6 +3810,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   numeroAPulsar: 5
   textoPantalla: {fileID: 612877713}
+  seleccionar: {fileID: 8300000, guid: 5048f3ad8d417f44b80b3d8a1f065fdc, type: 3}
+  cancelar: {fileID: 8300000, guid: 61fd34bdc041ef541805d71821755f01, type: 3}
 --- !u!1 &1895659217
 GameObject:
   m_ObjectHideFlags: 0
@@ -3936,6 +3960,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   numeroAPulsar: 4
   textoPantalla: {fileID: 612877713}
+  seleccionar: {fileID: 8300000, guid: 5048f3ad8d417f44b80b3d8a1f065fdc, type: 3}
+  cancelar: {fileID: 8300000, guid: 61fd34bdc041ef541805d71821755f01, type: 3}
 --- !u!1 &2021073212
 GameObject:
   m_ObjectHideFlags: 0

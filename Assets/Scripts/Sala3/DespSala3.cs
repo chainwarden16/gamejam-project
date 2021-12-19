@@ -21,6 +21,9 @@ public class DespSala3 : MonoBehaviour
 
     Camera camara;
 
+    [Header("Audio")]
+    AudioController audioC;
+    public AudioClip abrirPuertaGrande;
 
     void Start()
     {
@@ -275,7 +278,12 @@ public class DespSala3 : MonoBehaviour
         {
             if (manager.GetPuzlesResueltos()[6] && manager.GetPuzlesResueltos()[7] && manager.GetPuzlesResueltos()[8])
             {
-                manager.GuardarSalaCompletada(SceneManager.GetActiveScene().buildIndex + 2, "Fin");
+                audioC = FindObjectOfType<AudioController>();
+                if (audioC != null)
+                {
+                    audioC.PlaySFX(abrirPuertaGrande);
+                }
+                manager.GuardarSalaCompletada(SceneManager.GetActiveScene().buildIndex + 5, "Fin");
             }
         }
     }

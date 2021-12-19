@@ -15,7 +15,6 @@ public class MenuPausa : MonoBehaviour
     public bool estaViendoOpciones;
     public bool estaPausado;
 
-    OpcionesGameplay menuOpciones;
 
     GameManager manager;
 
@@ -29,7 +28,6 @@ public class MenuPausa : MonoBehaviour
     void Start()
     {
 
-        menuOpciones = GetComponent<OpcionesGameplay>();
         manager = FindObjectOfType<GameManager>();
 
         uiMenuPausa.SetActive(false);

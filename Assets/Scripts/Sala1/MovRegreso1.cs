@@ -51,7 +51,7 @@ public class MovRegreso1 : MonoBehaviour
                     {
 
                         boton.interactable = false;
-                        boton.image.color = new Color(1, 1, 1, 0);
+                        boton.image.color = new Color(1, 1, 1, 0.5f);
                         
                         for(int i = 0; i < botonesSala.Count-1; i++)
                         {

@@ -20,16 +20,16 @@ public class Puzle3 : MonoBehaviour
 
     GameManager manager;
     public Button botonCerrarPuzle;
-    //public Button botonAbrirPuzle;
 
-    //public DesplSala1 desp;
-    //public Button botonAtras;
-    //public GameObject posicionRetorno;
-    //public GameObject posicionVerPuzle;
-    //Camera camara;
+    [Header("Audio")]
+    AudioController audioC;
+    public AudioClip cancelar, completo;
+    bool estaResueltoYa;
+
 
     void Start() //habrá 6 colores aleatorios: rojo, azul, amarillo, verde, blanco y morado. Irán numerados de 0 a 5
     {
+        audioC = FindObjectOfType<AudioController>();
         manager = FindObjectOfType<GameManager>();
         //camara = Camera.main;
         ladosFisicos = FindObjectsOfType<LadoCubo>().ToList();
@@ -55,32 +55,24 @@ public class Puzle3 : MonoBehaviour
 
     }
 
-    /*
-    public void AbrirPuzle()
+    private void Update()
     {
-        //botonAtras.interactable = false;
-        //contenedorCubo.SetActive(true);
-        //botonCerrarPuzle.interactable = true;
-        //botonAbrirPuzle.interactable = false;
-        //contenedorTextoCubo.SetActive(true);
+        if(estaResueltoYa)
+        {
+            audioC = FindObjectOfType<AudioController>();
 
-        //se posiciona y rota la cámara
-        //camara.transform.position = posicionVerPuzle.transform.position;
-        //camara.transform.rotation = posicionVerPuzle.transform.rotation;
-
+        }
     }
-    */
+
+
     public void CerrarPuzle()
     {
-        //botonAtras.interactable = true;
-        //contenedorCubo.SetActive(false);
-        //botonCerrarPuzle.interactable = false;
-        //botonAbrirPuzle.interactable = true;
-        //contenedorTextoCubo.SetActive(false);
+        audioC = FindObjectOfType<AudioController>();
 
-        //se devuelve la cámara al lugar que debería, con la rotación esperada
-        //camara.transform.position = posicionRetorno.transform.position;
-        //camara.transform.rotation = posicionRetorno.transform.rotation;
+        if (audioC != null)
+        {
+            audioC.PlaySFX(cancelar);
+        }
 
         Initiate.Fade("Sala1 old", Color.black, 1f);
     }
@@ -103,6 +95,17 @@ public class Puzle3 : MonoBehaviour
 
             manager.SetPuzleResuelto(2, estaResuelto);
         }
+
+        if (manager != null && manager.GetPuzlesResueltos()[2])
+        {
+            audioC = FindObjectOfType<AudioController>();
+
+            if (audioC != null)
+            {
+                audioC.PlaySFX(completo);
+            }
+        }
+
         return estaResuelto;
     }
 

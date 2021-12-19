@@ -11,6 +11,10 @@ public class BotonPanel7 : MonoBehaviour
 
     Puzle7 puzle;
 
+    [Header("Audio")]
+    AudioController audioC;
+    public AudioClip seleccionar, cancelar;
+
     private void Start()
     {
         puzle = FindObjectOfType<Puzle7>();
@@ -21,6 +25,13 @@ public class BotonPanel7 : MonoBehaviour
         if (textoPantalla.text.Length < 7 && !puzle.EstaResuelto())
         {
             textoPantalla.text += numeroAPulsar;
+
+            audioC = FindObjectOfType<AudioController>();
+            if (audioC != null)
+            {
+                audioC.PlaySFX(seleccionar);
+            }
+
             puzle.ComprobarEstadoPuzle();
         }
     }
@@ -29,13 +40,27 @@ public class BotonPanel7 : MonoBehaviour
     public void BorrarTexto()
     {
         if (!puzle.EstaResuelto())
+        {
+
+            audioC = FindObjectOfType<AudioController>();
+            if (audioC != null)
+            {
+                audioC.PlaySFX(cancelar);
+            }
+
             textoPantalla.text = "";
+        }
     }
 
     public void BorrarUnCaracter()
     {
         if (textoPantalla.text != "" && !puzle.EstaResuelto())
         {
+            audioC = FindObjectOfType<AudioController>();
+            if (audioC != null)
+            {
+                audioC.PlaySFX(cancelar);
+            }
             textoPantalla.text = textoPantalla.text.Remove(textoPantalla.text.Length-1, 1);
         }
 

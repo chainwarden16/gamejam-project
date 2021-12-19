@@ -376,7 +376,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 1, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -2296,6 +2296,10 @@ MonoBehaviour:
   luzVerde: {fileID: 21300000, guid: d4304705c1284d842b9622c91637efd2, type: 3}
   luzRoja: {fileID: 21300000, guid: d8d74cbed0474fb4c88d3be83fad5ec4, type: 3}
   textoContador: {fileID: 1278919740}
+  completo: {fileID: 8300000, guid: 5db4f84d8885de7469983e3b50d4575b, type: 3}
+  error: {fileID: 8300000, guid: 3637b3a85914a3f4e99a75c5552c2828, type: 3}
+  seleccionar: {fileID: 8300000, guid: 5048f3ad8d417f44b80b3d8a1f065fdc, type: 3}
+  cancelar: {fileID: 8300000, guid: 61fd34bdc041ef541805d71821755f01, type: 3}
 --- !u!1 &1784081676
 GameObject:
   m_ObjectHideFlags: 0

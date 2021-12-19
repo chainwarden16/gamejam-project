@@ -5,7 +5,7 @@ using UnityEngine;
 public class BolaMetal : MonoBehaviour
 {
     Rigidbody2D rb;
-    int velocidadBola = 80; //40
+    int velocidadBola = 10;
     Puzle1 puzle;
 
     private void Awake()

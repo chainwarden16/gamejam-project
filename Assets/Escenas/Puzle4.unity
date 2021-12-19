@@ -2071,6 +2071,8 @@ MonoBehaviour:
   horaActual: 0
   minutoActual: 0
   estaResuelto: 0
+  completo: {fileID: 8300000, guid: 5db4f84d8885de7469983e3b50d4575b, type: 3}
+  cancelar: {fileID: 8300000, guid: 61fd34bdc041ef541805d71821755f01, type: 3}
 --- !u!114 &1870843696
 MonoBehaviour:
   m_ObjectHideFlags: 0

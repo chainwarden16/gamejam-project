@@ -19,9 +19,13 @@ public class DespSala2 : MonoBehaviour
 
     Camera camara;
 
+    [Header("Audio")]
+    AudioController audioC;
+    public AudioClip abrirPuerta;
 
     private void Start()
     {
+        audioC = FindObjectOfType<AudioController>();
         camara = Camera.main;
         manager = FindObjectOfType<GameManager>();
         regreso = FindObjectOfType<MovRegreso2>();
@@ -62,6 +66,12 @@ public class DespSala2 : MonoBehaviour
             if (manager.GetPuzlesResueltos()[3] && manager.GetPuzlesResueltos()[4] && manager.GetPuzlesResueltos()[5])
             {
                 manager.GuardarSalaCompletada(SceneManager.GetActiveScene().buildIndex + 4, "Sala3");
+
+                if (audioC != null)
+                {
+                    audioC.PlaySFX(abrirPuerta);
+                }
+
             }
 
         }

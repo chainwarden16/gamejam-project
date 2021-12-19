@@ -1938,6 +1938,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2026842224}
   - component: {fileID: 2026842222}
+  - component: {fileID: 2026842223}
   m_Layer: 0
   m_Name: --Scripts--
   m_TagString: Untagged
@@ -1959,6 +1960,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   confirmar: {fileID: 0}
   cancelar: {fileID: 0}
+--- !u!114 &2026842223
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2026842221}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05eb1a147a3ee6444ae9df80e7a8dc79, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &2026842224
 Transform:
   m_ObjectHideFlags: 0

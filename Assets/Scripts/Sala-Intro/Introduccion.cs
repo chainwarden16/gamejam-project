@@ -14,8 +14,14 @@ public class Introduccion : MonoBehaviour
 
     bool haLeido = false;
 
+    [Header("Audio")]
+    AudioController audioC;
+    public AudioClip abrirPuerta, puertaDesbloqueada;
+
+
     private void Start()
     {
+        audioC = FindObjectOfType<AudioController>();
         papelInstrucciones.SetActive(false);
         salida.GetComponent<Button>().interactable = false;
         salida.SetActive(false);
@@ -24,6 +30,14 @@ public class Introduccion : MonoBehaviour
 
     public void EmpezarEscapeRoom()
     {
+        audioC = FindObjectOfType<AudioController>();
+        if (audioC != null)
+        {
+            audioC.PlaySFX(abrirPuerta);
+        }
+
+
+
         PlayerPrefs.DeleteAll();
         Initiate.Fade("Sala1 old", Color.black, 1f);
     }
@@ -52,6 +66,13 @@ public class Introduccion : MonoBehaviour
         papelInstrucciones.SetActive(false);
         botonLeer.SetActive(false);
         Canvas.ForceUpdateCanvases();
+
+        audioC = FindObjectOfType<AudioController>();
+        if (audioC != null)
+        {
+            audioC.PlaySFX(puertaDesbloqueada);
+        }
+
     }
 
 

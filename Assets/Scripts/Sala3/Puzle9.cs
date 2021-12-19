@@ -23,6 +23,10 @@ public class Puzle9 : MonoBehaviour
 
     GameManager manager;
 
+    [Header("Audio")]
+    AudioController audioC;
+    public AudioClip completo, error, seleccionar, cancelar;
+
     void Start()
     {
         manager = FindObjectOfType<GameManager>();
@@ -88,6 +92,11 @@ public class Puzle9 : MonoBehaviour
         }
 
         estaResuelto = estadoResuelto;
+        audioC = FindObjectOfType<AudioController>();
+        if (audioC != null && estaResuelto)
+        {
+            audioC.sourceSFX.PlayOneShot(completo);
+        }
     }
 
     public bool GetEstaResuelto()
@@ -97,6 +106,7 @@ public class Puzle9 : MonoBehaviour
 
     public void PresionarBoton(int color)
     {
+
         int cifra1 = contador / 10;
         int cifra2 = contador % 10;
 
@@ -112,9 +122,17 @@ public class Puzle9 : MonoBehaviour
                     //se cambia la imagen del boton
                     luz1.sprite = luzVerde;
                     ultimoValorSeleccionado = valor1;
+                    audioC = FindObjectOfType<AudioController>();
+
+                    if (audioC != null)
+                    {
+                        audioC.PlaySFX(seleccionar);
+                    }
+
                 }
                 else
                 {
+                    
                     DesactivarBotones();
                 }
                 break;
@@ -125,6 +143,12 @@ public class Puzle9 : MonoBehaviour
                     //se cambia la imagen del boton
                     luz2.sprite = luzVerde;
                     ultimoValorSeleccionado = valor2;
+
+                    audioC = FindObjectOfType<AudioController>();
+                    if (audioC != null)
+                    {
+                        audioC.PlaySFX(seleccionar);
+                    }
 
                 }
                 else
@@ -139,6 +163,13 @@ public class Puzle9 : MonoBehaviour
                     //se cambia la imagen del boton
                     luz3.sprite = luzVerde;
                     ultimoValorSeleccionado = valor3;
+                    audioC = FindObjectOfType<AudioController>();
+
+                    if (audioC != null)
+                    {
+                        audioC.PlaySFX(seleccionar);
+                    }
+
                 }
                 else
                 {
@@ -152,6 +183,13 @@ public class Puzle9 : MonoBehaviour
                     //se cambia la imagen del boton
                     luz4.sprite = luzVerde;
                     ultimoValorSeleccionado = valor4;
+
+                    audioC = FindObjectOfType<AudioController>();
+                    if (audioC != null)
+                    {
+                        audioC.PlaySFX(seleccionar);
+                    }
+
                 }
                 else
                 {
@@ -179,10 +217,23 @@ public class Puzle9 : MonoBehaviour
         luz4.sprite = luzRoja;
 
         ultimoValorSeleccionado = 0;
+
+        audioC = FindObjectOfType<AudioController>();
+        if (audioC != null)
+        {
+            audioC.PlaySFX(error);
+        }
+
     }
 
     public void CerrarPuzle9()
     {
+        audioC = FindObjectOfType<AudioController>();
+        if (audioC != null)
+        {
+            audioC.PlaySFX(cancelar);
+        }
+
         Initiate.Fade("Sala3", Color.black, 1f);
     }
 

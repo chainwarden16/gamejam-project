@@ -31,21 +31,21 @@ public class Puzle2 : MonoBehaviour
 
     bool estaResuelto;
 
-    //public DesplSala1 desp;
-    //public Button botonAtras;
 
-    //public Button abrirPuzle;
     public Button cerrarPuzle;
     GameManager manager;
-    //public GameObject posicionRetorno;
-    //public GameObject posicionVerPuzle;
-    //Camera camara;
+
+    [Header("Audio")]
+    AudioController audioC;
+    public AudioClip cancelar, completo, seleccionar;
+
 
     // Start is called before the first frame update
     void Start()
     {
+        audioC = FindObjectOfType<AudioController>();
         manager = FindObjectOfType<GameManager>();
-        //camara = Camera.main;
+
         //Se escoge 18 libros aleatorios de entre los 24 disponibles y se colocan. Luego, se mira cuál sería su orden correcto (tanto alfabético como por color) y se guarda para compararlo
         //cada vez que el jugador intercambie dos libros de lugar
 
@@ -106,6 +106,8 @@ public class Puzle2 : MonoBehaviour
         {
             //se proporciona el objeto y se impide que se pueda seguir manipulando los libros
             Debug.Log("¡Resuelto!");
+            audioC = FindObjectOfType<AudioController>();
+
             foreach (Libro li in libros)
             {
                 li.enabled = false;
@@ -125,32 +127,16 @@ public class Puzle2 : MonoBehaviour
 
     }
 
-    /*
-    public void AbrirPuzleLibros()
-    {
-        puzleContenedor.SetActive(true);
-        textoPuzle.SetActive(true);
-        cerrarPuzle.interactable = true;
-        //abrirPuzle.interactable = false;
-        //botonAtras.interactable = false;
 
-        //la cámara vuelve a su sitio
-        //camara.transform.position = posicionVerPuzle.transform.position;
-        //camara.transform.rotation = posicionVerPuzle.transform.rotation;
-    }
-    */
 
     public void CerrarPuzleLibros()
     {
-        //cerrarPuzle.interactable = false;
-        //abrirPuzle.interactable = true;
-        //botonAtras.interactable = false;
-        //puzleContenedor.SetActive(false);
-        //textoPuzle.SetActive(false);
+        audioC = FindObjectOfType<AudioController>();
 
-        //la cámara vuelve a su sitio con su rotación adecuada, tal como cabría esperar
-        //camara.transform.position = posicionRetorno.transform.position;
-        //camara.transform.rotation = posicionRetorno.transform.rotation;
+        if (audioC != null)
+        {
+            audioC.PlaySFX(cancelar);
+        }
 
         Initiate.Fade("Sala1 old", Color.black, 1f);
     }
@@ -158,56 +144,30 @@ public class Puzle2 : MonoBehaviour
     public void SeleccionarLibro(GameObject lib)
     {
 
-        //if (Input.GetButtonDown("Fire1"))
-        //{
-        /*Debug.Log("Boton pulsado");
-        var rayo = Camera.main.ScreenPointToRay(Input.mousePosition);
-        RaycastHit hit;
 
-        if (Physics.Raycast(rayo, out hit))
-        {
-            Debug.Log("Hola");
-            //Transform seleccion = hit.transform;
-            Debug.Log(seleccion.position);
-            if (seleccion.gameObject.GetComponent<Libro>() != null)
-            {*/
         if (posicionActual == Vector2.zero)
         {
 
             l1 = lib;
             posicionActual = lib.transform.position;
+            lib.GetComponent<Libro>().GetComponentInChildren<SpriteRenderer>().color = new Color(0.7f, 0.7f, 0.7f, 1);
+            audioC = FindObjectOfType<AudioController>();
+
+            if (audioC != null)
+            {
+                audioC.PlaySFX(seleccionar);
+            }
 
         }
         else
         {
+            l1.GetComponent<Libro>().GetComponentInChildren<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1);
             l2 = lib;
             posicionObjetivo = lib.transform.position;
             IntercambiarLibros(l1, l2);
         }
 
-        //}
-        //}
 
-        /*
-        if (posicionActual == Vector2.zero)
-        {
-
-            l1 = gameObject;
-            posicionActual = gameObject.transform.position;
-            Debug.Log(posicionActual);
-            Debug.Log(Input.mousePosition);
-
-        }
-        else
-        {
-            l2 = gameObject;
-            posicionObjetivo = gameObject.transform.position;
-            Debug.Log(posicionObjetivo);
-            Debug.Log(Input.mousePosition);
-            IntercambiarLibros(l1, l2);
-        }*/
-
-        //}
     }
 
     public void IntercambiarLibros(GameObject libro1, GameObject libro2)
@@ -219,12 +179,29 @@ public class Puzle2 : MonoBehaviour
         posicionActual = Vector2.zero;
         posicionObjetivo = Vector2.zero;
         //int indice1 = libro1.GetComponent<Libro>().GetDatosLibro().
+        if (!estaResuelto)
+        {
+            SwapElements(libros, libros.IndexOf(libro1.GetComponent<Libro>()), libros.IndexOf(libro2.GetComponent<Libro>()));
 
-        SwapElements(libros, libros.IndexOf(libro1.GetComponent<Libro>()), libros.IndexOf(libro2.GetComponent<Libro>()));
+            bool verSiEstaResuelto = ComprobarSiEstaResuelto();
+            SetEstaResuelto(verSiEstaResuelto);
 
-        bool verSiEstaResuelto = ComprobarSiEstaResuelto();
-        SetEstaResuelto(verSiEstaResuelto);
+            if (verSiEstaResuelto)
+            {
+                if (audioC != null)
+                {
+                    audioC.PlaySFX(completo);
+                }
+            }
 
+        }
+        else
+        {
+            if (audioC != null)
+            {
+                audioC.PlaySFX(completo);
+            }
+        }
     }
 
     public void SwapElements(List<Libro> list, int indexA, int indexB)
@@ -245,7 +222,14 @@ public class Puzle2 : MonoBehaviour
                 resuelto = false;
             }
         }
-        //desp.SetB2(estaResuelto);
+
+        if (resuelto)
+        {
+            if (audioC != null)
+            {
+                audioC.PlaySFX(completo);
+            }
+        }
 
         return resuelto;
     }
@@ -256,6 +240,17 @@ public class Puzle2 : MonoBehaviour
         {
             manager.SetPuzleResuelto(1, valor);
         }
+
+        if (estaResuelto)
+        {
+            audioC = FindObjectOfType<AudioController>();
+
+            if (audioC != null)
+            {
+                audioC.PlaySFX(completo);
+            }
+        }
+
         estaResuelto = valor;
     }
 }

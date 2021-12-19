@@ -627,6 +627,9 @@ MonoBehaviour:
   posicionActual: {x: 0, y: 0}
   posicionObjetivo: {x: 0, y: 0}
   cerrarPuzle: {fileID: 1426861273}
+  cancelar: {fileID: 8300000, guid: 61fd34bdc041ef541805d71821755f01, type: 3}
+  completo: {fileID: 8300000, guid: 5db4f84d8885de7469983e3b50d4575b, type: 3}
+  seleccionar: {fileID: 8300000, guid: 5048f3ad8d417f44b80b3d8a1f065fdc, type: 3}
 --- !u!1 &1217226988
 GameObject:
   m_ObjectHideFlags: 0

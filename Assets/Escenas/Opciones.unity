@@ -232,8 +232,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 591.5, y: 56.8}
-  m_SizeDelta: {x: 600, y: 50}
+  m_AnchoredPosition: {x: 599.85, y: 56.8}
+  m_SizeDelta: {x: 650, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &58676151
 MonoBehaviour:
@@ -255,7 +255,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Set de music and SFX's volume
+  m_text: Set the music and SFX's volume
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 0f84735ef040e1e4f8152b31e42d4612, type: 2}
   m_sharedMaterial: {fileID: 3057156282666892716, guid: 0f84735ef040e1e4f8152b31e42d4612, type: 2}
@@ -2945,7 +2945,7 @@ MonoBehaviour:
   flechaIzqSFX: {fileID: 2082713634}
   cantidadMusica: {fileID: 374380514}
   cantidadSFX: {fileID: 1689743985}
-  seleccionar: {fileID: 0}
+  seleccionar: {fileID: 8300000, guid: 5048f3ad8d417f44b80b3d8a1f065fdc, type: 3}
 --- !u!114 &1653076839
 MonoBehaviour:
   m_ObjectHideFlags: 0

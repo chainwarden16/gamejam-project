@@ -3767,6 +3767,8 @@ MonoBehaviour:
   valor2: 0
   valor3: 0
   valor4: 0
+  completo: {fileID: 8300000, guid: b5b1ce62f112c254bb2a397b05dfe2a0, type: 3}
+  seleccionar: {fileID: 8300000, guid: 5048f3ad8d417f44b80b3d8a1f065fdc, type: 3}
 --- !u!1001 &1789628827
 PrefabInstance:
   m_ObjectHideFlags: 0

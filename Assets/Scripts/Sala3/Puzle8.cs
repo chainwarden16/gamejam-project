@@ -23,12 +23,16 @@ public class Puzle8 : MonoBehaviour
 
     [Header("Solución puzle 9")]
     List<int> posiblesValores1 = new List<int> { 3, 5, 8 }; //azul
-    List<int> posiblesValores2 = new List<int> { 1, 4, 9 }; //rojo
-    List<int> posiblesValores3 = new List<int> { 6, 0 }; //verde
+    List<int> posiblesValores2 = new List<int> { 1, 6 }; //rojo
+    List<int> posiblesValores3 = new List<int> { 4, 9 }; //verde
     List<int> posiblesValores4 = new List<int> { 2, 7 }; //amarillo
 
     [SerializeField]
     int valor1, valor2, valor3, valor4;
+
+    [Header("Audio")]
+    AudioController audioC;
+    public AudioClip completo, seleccionar;
 
     void Start()
     {
@@ -43,7 +47,7 @@ public class Puzle8 : MonoBehaviour
         if (PlayerPrefs.GetInt("Digito1", -1) == -1)
         {
             valor1 = posiblesValores1[Random.Range(0, 3)];
-            valor2 = posiblesValores2[Random.Range(0, 3)];
+            valor2 = posiblesValores2[Random.Range(0, 2)];
             valor3 = posiblesValores3[Random.Range(0, 2)];
             valor4 = posiblesValores4[Random.Range(0, 2)];
 
@@ -75,7 +79,6 @@ public class Puzle8 : MonoBehaviour
                 estaResuelto = true;
                 HacerAparecerSolucion();
 
-
             }
             else
             {
@@ -101,6 +104,12 @@ public class Puzle8 : MonoBehaviour
 
             piezasColocadas[indice] = null;
 
+        }
+
+        audioC = FindObjectOfType<AudioController>();
+        if (audioC != null)
+        {
+            audioC.PlaySFX(seleccionar);
         }
     }
 
@@ -156,6 +165,12 @@ public class Puzle8 : MonoBehaviour
         if (estaResuelto)
         {
             HacerAparecerSolucion();
+
+            audioC = FindObjectOfType<AudioController>();
+            if (audioC != null)
+            {
+                audioC.sourceSFX.PlayOneShot(completo);
+            }
         }
     }
 

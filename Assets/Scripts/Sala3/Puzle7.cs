@@ -14,6 +14,10 @@ public class Puzle7 : MonoBehaviour
 
     GameManager manager;
 
+    [Header("Audio")]
+    AudioController audioC;
+    public AudioClip completo, cancelar;
+
     private void Start()
     {
         manager = FindObjectOfType<GameManager>();
@@ -26,7 +30,11 @@ public class Puzle7 : MonoBehaviour
             estaResuelto = true;
             if (manager != null)
             {
-
+                audioC = FindObjectOfType<AudioController>();
+                if (audioC != null)
+                {
+                    audioC.sourceSFX.PlayOneShot(completo);
+                }
                 manager.SetPuzleResuelto(6, true);
 
             }
@@ -45,6 +53,11 @@ public class Puzle7 : MonoBehaviour
 
     public void CerrarPuzle7()
     {
+        audioC = FindObjectOfType<AudioController>();
+        if (audioC != null)
+        {
+            audioC.PlaySFX(cancelar);
+        }
         Initiate.Fade("Sala3", Color.black, 1f);
     }
 

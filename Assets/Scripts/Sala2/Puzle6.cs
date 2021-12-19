@@ -27,6 +27,10 @@ public class Puzle6 : MonoBehaviour
     Inventario inventario;
     GameManager manager;
 
+    [Header("Audio")]
+    AudioController audioC;
+    public AudioClip completo, cancelar, seleccionar;
+
     private void Start()
     {
         manager = FindObjectOfType<GameManager>();
@@ -34,6 +38,11 @@ public class Puzle6 : MonoBehaviour
 
     public void CerrarPuzleHanoi()
     {
+        audioC = FindObjectOfType<AudioController>();
+        if (audioC != null)
+        {
+            audioC.PlaySFX(cancelar);
+        }
         Initiate.Fade("sala2", Color.black, 1f);
     }
 
@@ -61,6 +70,15 @@ public class Puzle6 : MonoBehaviour
         }
 
         estaResuelto = resuelto;
+
+        if (estaResuelto)
+        {
+            audioC = FindObjectOfType<AudioController>();
+            if (audioC != null)
+            {
+                audioC.sourceSFX.PlayOneShot(completo);
+            }
+        }
 
         if (manager != null)
         {
@@ -92,6 +110,11 @@ public class Puzle6 : MonoBehaviour
 
     public void SeleccionarDisco(Donut disco)
     {
+        audioC = FindObjectOfType<AudioController>();
+        if (audioC != null)
+        {
+            audioC.PlaySFX(seleccionar);
+        }
         discoSeleccionado = disco;
 
         switch (disco.GetSize())
@@ -118,6 +141,11 @@ public class Puzle6 : MonoBehaviour
     {
         discoSeleccionado = null;
         textoIndicador.text = "None";
+        audioC = FindObjectOfType<AudioController>();
+        if (audioC != null)
+        {
+            audioC.PlaySFX(cancelar);
+        }
     }
 
 

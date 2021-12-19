@@ -2616,6 +2616,9 @@ MonoBehaviour:
   varilla3: {fileID: 95600457}
   discoSeleccionado: {fileID: 0}
   sePuedeMoverDisco: 1
+  completo: {fileID: 8300000, guid: 5db4f84d8885de7469983e3b50d4575b, type: 3}
+  cancelar: {fileID: 8300000, guid: 61fd34bdc041ef541805d71821755f01, type: 3}
+  seleccionar: {fileID: 8300000, guid: 5048f3ad8d417f44b80b3d8a1f065fdc, type: 3}
 --- !u!1 &1906090377
 GameObject:
   m_ObjectHideFlags: 0

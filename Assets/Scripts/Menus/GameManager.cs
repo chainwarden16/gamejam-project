@@ -7,11 +7,11 @@ public class GameManager : MonoBehaviour
 {
     [Header("Progreso del oponente")]
     [SerializeField]
-    float contadorOponente = 420f;
+    float contadorOponente = 70f; //420
     [SerializeField]
     int salaOponente;
-    const float minimoTiempo = 420f;
-    const float maximoTiempo = 480f;
+    const float minimoTiempo = 420f; //420
+    const float maximoTiempo = 480f; //480
 
     [Header("Progreso del jugador")]
     [SerializeField]
@@ -25,6 +25,10 @@ public class GameManager : MonoBehaviour
     [Tooltip("Van del 1 al 9,empezando por el 0. Una vez todos estén resueltos se irá a la pantalla de victoria")]
     [SerializeField]
     List<bool> puzlesResueltos = new List<bool>() { false, false, false, false, false, false, false, false, false };
+
+    [Header("Audio")]
+    AudioController audioC;
+    bool haEmpezadoASonarAlarma;
 
     #region Métodos de Unity
 
@@ -50,6 +54,8 @@ public class GameManager : MonoBehaviour
         salaOponente = PlayerPrefs.GetInt("SalaActualOponente", 1);
         ReiniciarEstadoContador();
 
+        audioC = FindObjectOfType<AudioController>();
+
     }
 
     private void Update()
@@ -60,6 +66,16 @@ public class GameManager : MonoBehaviour
          * 
          * Importante: debido a esto, las soluciones del puzles se deberán recalcular en el start de cada puzle, no en este método
          */
+
+        if(contadorOponente < 60f && !haEmpezadoASonarAlarma)
+        {
+            if(audioC != null)
+            {
+                audioC.PlaySong(audioC.musicaAlarma);
+                haEmpezadoASonarAlarma = true;
+            }
+        }
+
 
         if (contadorOponente <= 0f && salaOponente < 3)
         {
@@ -73,9 +89,9 @@ public class GameManager : MonoBehaviour
 
             estaReiniciandoSala = true;
 
-
-
             GuardarProgresoOponente();
+
+            ReiniciarEstadoContador();
 
             switch (PlayerPrefs.GetInt("EscenaActual"))
             {
@@ -109,7 +125,7 @@ public class GameManager : MonoBehaviour
 
 
         }
-        else if (salaOponente == 3)
+        else if (salaOponente == 3 && contadorOponente < 0f)
         {
 
             estaReiniciandoSala = true;
@@ -121,7 +137,12 @@ public class GameManager : MonoBehaviour
                     puzlesResueltos[i] = false;
                 }
 
-                Initiate.Fade("Game Over", Color.black, 1f);
+                if(audioC != null)
+                {
+                    audioC.PlaySong(audioC.musicaDerrota);
+                }
+
+                Initiate.Fade("GameOver", Color.black, 1f);
             }
             else
             {
@@ -142,6 +163,7 @@ public class GameManager : MonoBehaviour
     public void GuardarSalaCompletada(int numero, string nombreEscena)
     {
         PlayerPrefs.SetInt("EscenaActual", numero);
+        ReiniciarEstadoContador();
         SceneManager.LoadScene(nombreEscena);
     }
 
@@ -149,11 +171,41 @@ public class GameManager : MonoBehaviour
     public void ReiniciarEstadoContador()
     {
         contadorOponente = Random.Range(minimoTiempo, maximoTiempo);
+        estaReiniciandoSala = false;
+
+        //Según en qué sala estés, se reproduce un sonido de fondo u otro
+        ReproducirMusicaSala();
     }
 
     public void GuardarProgresoOponente()
     {
         PlayerPrefs.SetInt("SalaActualOponente", salaOponente);
+    }
+
+    public void ReproducirMusicaSala()
+    {
+        audioC = FindObjectOfType<AudioController>();
+
+        switch (PlayerPrefs.GetInt("EscenaActual"))
+        {
+            case 7:
+
+                audioC.PlaySong(audioC.musicaSala2);
+
+                break;
+
+            case 11:
+                
+                audioC.PlaySong(audioC.musicaSala3);
+
+                break;
+
+            default:
+
+                audioC.PlaySong(audioC.musicaSala1);
+
+                break;
+        }
     }
 
     public int GetPuzleActual()

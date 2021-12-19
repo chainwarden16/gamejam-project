@@ -29,10 +29,16 @@ public class Puzle1 : MonoBehaviour
     //public GameObject posicionRetorno;
     //public GameObject posicionVerPuzle;
 
+    [Header("Audio")]
+    AudioController audioC;
+    public AudioClip cancelar, correcto, completado, error;
+
     private void Start()
     {
         //camara = Camera.main;
         manager = FindObjectOfType<GameManager>();
+
+        audioC = FindObjectOfType<AudioController>();
 
         numeroRevelado = Random.Range(1000, 10000).ToString();
         for (int i = 0; i < 4; i++)
@@ -45,32 +51,19 @@ public class Puzle1 : MonoBehaviour
         }
     }
 
-    /*
-    public void AbrirLaberinto()
-    {
-        
-        laberintoTablero.gameObject.SetActive(true);
-        bolaMetal.SetActive(true);
-        //botonAtras.interactable = false;
-        cerrarPuzle.interactable = true;
-        abrirPuzle.interactable = false;
-        //desplazar la cámara al punto determinado, con la rotación adecuada
-        //camara.transform.position = posicionVerPuzle.transform.position;
-        //camara.transform.rotation = posicionVerPuzle.transform.rotation;
-    }*/
-
     public void CerrarLaberinto()
     {
-        //cerrarPuzle.interactable = false;
-        //abrirPuzle.interactable = true;
-        //se recoloca la bola en el inicio
-        bolaMetal.transform.position = posicionInicialBola;
-        //laberintoTablero.gameObject.SetActive(false);
+
+
+        audioC = FindObjectOfType<AudioController>();
+
+        if (audioC != null)
+        {
+            audioC.PlaySFX(cancelar);
+        }
+
         Initiate.Fade("Sala1 old", Color.black, 1f);
-        //botonAtras.interactable = true;
-        //devolver la cámara al punto que debería estar, con la rotación adecuada
-        //camara.transform.position = posicionRetorno.transform.position;
-        //camara.transform.rotation = posicionRetorno.transform.rotation;
+
     }
 
     public void ReiniciarMarcadores()
@@ -83,6 +76,12 @@ public class Puzle1 : MonoBehaviour
             //textoMarcadores[i].gameObject.SetActive(false);
         }
         bolaMetal.transform.position = posicionInicialBola;
+        audioC = FindObjectOfType<AudioController>();
+
+        if (audioC != null)
+        {
+            audioC.PlaySFX(error);
+        }
     }
 
     public void MostrarCombinacion()
@@ -101,15 +100,18 @@ public class Puzle1 : MonoBehaviour
         if (yaEstanTodos)
         {
             estaResuelto = true;
-            if(manager != null)
+            if (manager != null)
             {
                 manager.SetPuzleResuelto(0, true);
+
             }
-            //desp.SetB1(estaResuelto);
-            /*foreach (TextMeshProUGUI texto in textoMarcadores)
+
+            audioC = FindObjectOfType<AudioController>();
+
+            if (audioC != null)
             {
-                texto.gameObject.SetActive(true);
-            }*/
+                audioC.sourceSFX.PlayOneShot(completado);
+            }
         }
 
     }
@@ -122,7 +124,13 @@ public class Puzle1 : MonoBehaviour
     public void SetMarcadorActivado(int inde)
     {
         marcadoresActivados[inde] = true;
-        marcadores[inde].GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
+        marcadores[inde].GetComponent<SpriteRenderer>().color = new Color(0, 1, 0, 1);
+        audioC = FindObjectOfType<AudioController>();
+
+        if (audioC != null)
+        {
+            audioC.PlaySFX(correcto);
+        }
     }
 
     public void SetPosicionBolaInicio()
